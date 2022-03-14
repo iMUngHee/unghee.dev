@@ -27,7 +27,7 @@ export default function NavigationBar() {
               />
             </svg>
           </span>
-          <span className="select-none text-xl text-zinc-800 dark:text-amber-50">
+          <span className="select-none font-['RocknRoll_One'] text-xl text-zinc-800 dark:text-amber-50">
             Unghee Lee
           </span>
         </div>
