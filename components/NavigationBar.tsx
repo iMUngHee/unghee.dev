@@ -1,14 +1,20 @@
+import cls from "@libs/cls";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function NavigationBar() {
   const { theme, setTheme } = useTheme();
+  const [isHidden, setIsHidden] = useState(true);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
+  const onHidden = () => {
+    setIsHidden((prev) => !prev);
+  };
   return (
-    <div className="h-screen w-screen bg-amber-50 dark:bg-zinc-800">
-      <div className="flex h-12 w-full items-center justify-between bg-gradient-to-b from-amber-100 to-amber-50 px-2 dark:from-zinc-900 dark:to-zinc-800">
+    <>
+      <div className="fixed flex h-12 w-full items-center justify-between bg-gradient-to-b from-amber-100 to-amber-50 px-2 dark:from-zinc-900 dark:to-zinc-800">
         <div className="flex flex-row items-center justify-center gap-1">
           <span>
             <svg
@@ -62,7 +68,10 @@ export default function NavigationBar() {
               </svg>
             )}
           </span>
-          <span className="dark:shadow-s flex h-8 w-8 cursor-pointer items-center justify-center rounded-md bg-amber-50 text-zinc-800 shadow-md dark:bg-zinc-800 dark:text-amber-50 dark:shadow-sm dark:shadow-slate-500">
+          <span
+            onClick={onHidden}
+            className="dark:shadow-s flex h-8 w-8 cursor-pointer items-center justify-center rounded-md bg-amber-50 text-zinc-800 shadow-md dark:bg-zinc-800 dark:text-amber-50 dark:shadow-sm dark:shadow-slate-500"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -79,7 +88,28 @@ export default function NavigationBar() {
             </svg>
           </span>
         </div>
+        <div
+          className={cls(
+            `absolute top-12 right-1 w-20 rounded-md bg-zinc-800 dark:bg-amber-50`,
+            isHidden ? "hidden" : "",
+          )}
+        >
+          <nav className="flex select-none flex-col items-center justify-center py-1 text-amber-50 dark:text-zinc-800">
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+            <Link href="/works">
+              <a>Works</a>
+            </Link>
+            <Link href="/posts">
+              <a>Posts</a>
+            </Link>
+            <Link href="/movies">
+              <a>Movies</a>
+            </Link>
+          </nav>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
