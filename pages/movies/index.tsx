@@ -5,11 +5,9 @@ const Movies: NextPage = () => {
   return (
     <>
       <NavigationBar />
-      <div>
-        Movies
-      </div>
-      </>
-  )
-}
+      <div>Movies</div>
+    </>
+  );
+};
 
 export default Movies;

@@ -8,6 +8,6 @@ const Works: NextPage = () => {
       <div>Works</div>
     </>
   );
-}
+};
 
 export default Works;
