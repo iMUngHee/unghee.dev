@@ -15,7 +15,7 @@ export default function NavigationBar() {
     setIsHidden((prev) => !prev);
   };
   const onClick = () => {
-    router.back();
+    router.push("/");
   };
   return (
     <div className="fixed flex h-12 w-full items-center justify-between bg-gradient-to-b from-amber-100 to-amber-50 px-2 dark:from-zinc-900 dark:to-zinc-800">
