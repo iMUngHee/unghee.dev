@@ -4,7 +4,6 @@ import { NextPage } from "next";
 const Works: NextPage = () => {
   return (
     <>
-      <NavigationBar />
       <div>Works</div>
     </>
   );

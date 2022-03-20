@@ -4,7 +4,6 @@ import { NextPage } from "next";
 const About: NextPage = () => {
   return (
     <>
-      <NavigationBar />
       <div>About</div>
     </>
   );

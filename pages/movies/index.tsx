@@ -4,7 +4,6 @@ import NavigationBar from "@components/NavigationBar";
 const Movies: NextPage = () => {
   return (
     <>
-      <NavigationBar />
       <div>Movies</div>
     </>
   );
