@@ -61,11 +61,11 @@ export default function NavigationBar() {
           </span>
         </div>
         <div className="flex flex-row items-center justify-center gap-2 xl:gap-10">
-          <div className={"hidden xl:flex"}>
+          <div className={"hidden md:flex"}>
             <nav
               className="flex select-none flex-row items-center justify-center 
-              gap-4 font-['RocknRoll_One'] text-lg text-zinc-800
-              dark:text-amber-50
+              gap-4 font-['RocknRoll_One'] text-base text-zinc-800
+              dark:text-amber-50 xl:text-lg
               "
             >
               <Link href="/about">
@@ -120,7 +120,7 @@ export default function NavigationBar() {
             className="dark:shadow-s flex h-8 w-8 cursor-pointer items-center justify-center rounded-md 
               bg-amber-50 text-zinc-800 shadow-md dark:bg-zinc-800 
                 dark:text-amber-50 dark:shadow-sm dark:shadow-slate-500
-                xl:hidden
+                md:hidden
               "
           >
             <svg
