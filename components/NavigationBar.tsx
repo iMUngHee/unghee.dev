@@ -10,6 +10,9 @@ export default function NavigationBar() {
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
   useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setIsHidden(true);
+  }, [router]);
   if (!mounted) return null;
   const onHidden = () => {
     setIsHidden((prev) => !prev);
