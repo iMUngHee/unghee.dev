@@ -3,9 +3,9 @@ import NavigationBar from "./NavigationBar";
 
 const Layout: NextPage = ({ children }) => {
   return (
-    <div className="mx-auto h-screen w-screen bg-amber-50 text-zinc-800 dark:bg-zinc-800 dark:text-amber-50">
+    <div className="min-h-screen w-screen bg-amber-50 text-zinc-800 dark:bg-zinc-800 dark:text-amber-50">
       <NavigationBar />
-      <main>{children}</main>
+      <main className="flex items-center justify-center pt-12">{children}</main>
     </div>
   );
 };
