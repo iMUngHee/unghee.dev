@@ -131,7 +131,9 @@ const Posts: NextPage = () => {
         {fakeData.map((post) => (
           <div
             key={post.id}
-            className="h-[20rem] w-full rounded-md bg-slate-50 shadow-md shadow-slate-500"
+            className="h-[20rem] w-full rounded-md bg-slate-50 shadow-md shadow-slate-500
+              dark:bg-zinc-700 dark:shadow-slate-900
+            "
           >
             <div className="flex h-full w-full flex-col items-center justify-center">
               <div className="relative h-1/2 w-full overflow-hidden rounded-t-md ">
@@ -145,20 +147,27 @@ const Posts: NextPage = () => {
               </div>
               <div className="flex h-1/2 w-full flex-col justify-between px-3 pt-2">
                 <div className="flex w-full flex-col">
-                  <div className="text-2xl font-bold text-zinc-900">
+                  <div className="text-2xl font-bold text-zinc-900 dark:text-white">
                     {post.title}
                   </div>
-                  <div className="mt-1 text-gray-500">{post.description}</div>
+                  <div className="mt-1 text-gray-500 dark:text-gray-300">
+                    {post.description}
+                  </div>
                 </div>
                 <div className="flex items-center justify-between pb-2">
                   <span>
                     {post.tags.map((tag, idx) => (
-                      <span key={idx} className="ml-1 text-cyan-600">
+                      <span
+                        key={idx}
+                        className="ml-1 text-cyan-600 dark:text-cyan-200"
+                      >
                         #{tag}
                       </span>
                     ))}
                   </span>
-                  <span className="text-gray-500">{post.date}</span>
+                  <span className="text-gray-500 dark:text-gray-300">
+                    {post.date}
+                  </span>
                 </div>
               </div>
             </div>
