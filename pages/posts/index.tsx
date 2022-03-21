@@ -123,7 +123,11 @@ const Posts: NextPage = () => {
         <span className="h-7 w-7 rounded-full bg-green-300" />
         <span className="h-7 w-7 rounded-full bg-green-300" />
       </div>
-      <div className="mt-6 flex flex-col items-center justify-center gap-y-7">
+      <div
+        className="mt-6 flex flex-col items-center justify-center gap-y-7
+        md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-4
+      "
+      >
         {fakeData.map((post) => (
           <div
             key={post.id}
