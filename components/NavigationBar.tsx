@@ -23,15 +23,15 @@ export default function NavigationBar() {
   return (
     <div
       className="
-      fixed h-12 w-full
-      bg-gradient-to-b from-amber-100 to-amber-50 px-2
-    dark:from-zinc-900 dark:to-zinc-800
-      xl:h-16
+      fixed z-[9999] h-12
+      w-full bg-gradient-to-b from-amber-100 to-amber-50
+    px-2 dark:from-zinc-900
+      dark:to-zinc-800 xl:h-16
     "
     >
       <div
-        className="flex h-full w-full items-center justify-between
-        xl:mx-auto xl:w-4/5
+        className="flex h-full w-full items-center
+        justify-between xl:mx-auto xl:w-4/5
       "
       >
         <div className="flex flex-row items-center justify-center gap-1">
