@@ -159,13 +159,13 @@ const Posts: NextPage = () => {
                     {post.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="ml-1 text-cyan-600 dark:text-cyan-200"
+                        className="ml-1 text-sm text-cyan-600 dark:text-cyan-200"
                       >
                         #{tag}
                       </span>
                     ))}
                   </span>
-                  <span className="text-gray-500 dark:text-gray-300">
+                  <span className="text-sm text-gray-500 dark:text-gray-300">
                     {post.date}
                   </span>
                 </div>
