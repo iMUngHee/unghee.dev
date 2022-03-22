@@ -119,9 +119,11 @@ const fakeData = [
 const Posts: NextPage = () => {
   return (
     <div className="mx-auto mt-5 flex w-11/12 flex-col items-center justify-center pb-12">
-      <div className="flex flex-row gap-5">
-        <span className="h-7 w-7 rounded-full bg-green-300" />
-        <span className="h-7 w-7 rounded-full bg-green-300" />
+      <div className="flex w-full flex-row items-center justify-start gap-5">
+        <span className="border-b-2 border-black font-['RocknRoll_One']">
+          Recent
+        </span>
+        <span className="font-['RocknRoll_One']">Tag</span>
       </div>
       <div
         className="mt-6 flex flex-col items-center justify-center gap-y-7
@@ -131,12 +133,12 @@ const Posts: NextPage = () => {
         {fakeData.map((post) => (
           <div
             key={post.id}
-            className="h-[20rem] w-full rounded-md bg-slate-50 shadow-md shadow-slate-500
-              dark:bg-zinc-700 dark:shadow-slate-900
+            className="h-[28rem] w-full rounded-md bg-slate-50 shadow-md shadow-slate-500
+              dark:bg-zinc-700 dark:shadow-slate-900 xl:h-[22rem]
             "
           >
             <div className="flex h-full w-full flex-col items-center justify-center">
-              <div className="relative h-1/2 w-full overflow-hidden rounded-t-md ">
+              <div className="relative h-[55%] w-full overflow-hidden rounded-t-md ">
                 <Image
                   src={post.img}
                   alt="thumbnail"
@@ -145,8 +147,8 @@ const Posts: NextPage = () => {
                   className="object-center"
                 />
               </div>
-              <div className="flex h-1/2 w-full flex-col justify-between px-3 pt-2">
-                <div className="flex w-full flex-col">
+              <div className="flex h-[45%] w-full flex-col justify-between px-3 pt-2">
+                <div className="flex w-full flex-1 flex-grow-0">
                   <div className="text-2xl font-bold text-zinc-900 dark:text-white">
                     {post.title}
                   </div>
