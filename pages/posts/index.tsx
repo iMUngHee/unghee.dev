@@ -1,4 +1,5 @@
 import Items from "@components/Items";
+import Tags from "@components/Tags";
 import cls from "@libs/cls";
 import { NextPage } from "next";
 import { useState } from "react";
@@ -38,7 +39,7 @@ const Posts: NextPage = () => {
           Tag
         </button>
       </div>
-      {type === "recent" ? <Items /> : null}
+      {type === "recent" ? <Items /> : <Tags />}
     </div>
   );
 };
