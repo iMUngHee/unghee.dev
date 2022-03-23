@@ -20,48 +20,51 @@ export default function Item({
   return (
     <div
       key={id}
-      className="h-[20rem] w-full rounded-md bg-slate-50 shadow-md
-        shadow-slate-500 dark:bg-zinc-700 dark:shadow-slate-900 
+      className="m-4 flex
+        w-full flex-col
+        overflow-hidden
+        rounded-md
+        bg-slate-50 shadow-md shadow-slate-500 dark:bg-zinc-700
+        dark:shadow-slate-900 
+        md:[width:calc(50%-2rem)] lg:w-[20rem]
       "
     >
-      <div className="flex h-full w-full flex-col items-center justify-center">
-        <div className="relative h-[55%] w-full overflow-hidden rounded-t-md ">
-          <Image
-            src={img}
-            alt="thumbnail"
-            objectFit="cover"
-            layout="fill"
-            className="object-center"
-          />
-        </div>
-        <div className="flex h-[45%] w-full flex-col justify-between px-3 pt-2">
-          <div className="flex w-full flex-col">
-            <div
-              className="w-full text-2xl font-bold text-zinc-900 dark:text-white
+      <div className="relative h-[18rem] w-full overflow-hidden rounded-t-md">
+        <Image
+          src={img}
+          alt="thumbnail"
+          objectFit="cover"
+          layout="fill"
+          className="object-center"
+        />
+      </div>
+      <div className="flex h-[10rem] flex-col justify-between p-2">
+        <div className="flex w-full flex-col p-2">
+          <h4
+            className="w-full text-2xl font-bold text-zinc-900 dark:text-white
               md:text-xl
             "
-            >
-              {title}
-            </div>
-            <div className=" mt-1 text-sm text-gray-500 dark:text-gray-300">
-              {description}
-            </div>
+          >
+            {title}
+          </h4>
+          <div className=" mt-1 flex-1 text-sm text-gray-500 dark:text-gray-300">
+            {description}
           </div>
-          <div className="flex items-center justify-between pb-2">
-            <span>
-              {tags.map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="ml-1 text-sm text-cyan-600 dark:text-cyan-200"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </span>
-            <span className="text-sm text-gray-500 dark:text-gray-300">
-              {date}
-            </span>
-          </div>
+        </div>
+        <div className="flex items-center justify-between p-2">
+          <span>
+            {tags.map((tag, idx) => (
+              <span
+                key={idx}
+                className="ml-1 text-sm text-cyan-600 dark:text-cyan-200"
+              >
+                #{tag}
+              </span>
+            ))}
+          </span>
+          <span className="text-sm text-gray-500 dark:text-gray-300">
+            {date}
+          </span>
         </div>
       </div>
     </div>

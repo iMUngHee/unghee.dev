@@ -122,15 +122,67 @@ const fakeData: IItem[] = [
     tags: ["React", "JS", "Framework"],
     date: "03. 21. 22",
   },
+  {
+    id: 15,
+    img: "https://media.vlpt.us/images/jun17114/post/f30c2a9d-8889-4c82-9e5e-7292d7078433/hooks.png",
+    title: "Do you know React?",
+    description: "That is awesome, you know? If you don't, just do it!",
+    tags: ["React", "JS", "Framework"],
+    date: "03. 21. 22",
+  },
+  {
+    id: 16,
+    img: "https://media.vlpt.us/images/jun17114/post/f30c2a9d-8889-4c82-9e5e-7292d7078433/hooks.png",
+    title: "Do you know React?",
+    description: "That is awesome, you know? If you don't, just do it!",
+    tags: ["React", "JS", "Framework"],
+    date: "03. 21. 22",
+  },
+  {
+    id: 17,
+    img: "https://media.vlpt.us/images/jun17114/post/f30c2a9d-8889-4c82-9e5e-7292d7078433/hooks.png",
+    title: "Do you know React?",
+    description: "That is awesome, you know? If you don't, just do it!",
+    tags: ["React", "JS", "Framework"],
+    date: "03. 21. 22",
+  },
+  {
+    id: 18,
+    img: "https://media.vlpt.us/images/jun17114/post/f30c2a9d-8889-4c82-9e5e-7292d7078433/hooks.png",
+    title: "Do you know React?",
+    description: "That is awesome, you know? If you don't, just do it!",
+    tags: ["React", "JS", "Framework"],
+    date: "03. 21. 22",
+  },
+  {
+    id: 19,
+    img: "https://media.vlpt.us/images/jun17114/post/f30c2a9d-8889-4c82-9e5e-7292d7078433/hooks.png",
+    title: "Do you know React?",
+    description: "That is awesome, you know? If you don't, just do it!",
+    tags: ["React", "JS", "Framework"],
+    date: "03. 21. 22",
+  },
+  {
+    id: 20,
+    img: "https://media.vlpt.us/images/jun17114/post/f30c2a9d-8889-4c82-9e5e-7292d7078433/hooks.png",
+    title: "Do you know React?",
+    description: "That is awesome, you know? If you don't, just do it!",
+    tags: ["React", "JS", "Framework"],
+    date: "03. 21. 22",
+  },
+  {
+    id: 21,
+    img: "https://media.vlpt.us/images/jun17114/post/f30c2a9d-8889-4c82-9e5e-7292d7078433/hooks.png",
+    title: "Do you know React?",
+    description: "That is awesome, you know? If you don't, just do it!",
+    tags: ["React", "JS", "Framework"],
+    date: "03. 21. 22",
+  },
 ];
 
 export default function Items() {
   return (
-    <div
-      className="mt-6 flex w-full flex-col items-center justify-center
-        gap-y-7 md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-4
-      "
-    >
+    <div className="-m-4 flex flex-wrap">
       {fakeData.map((post) => (
         <Item
           key={post.id}

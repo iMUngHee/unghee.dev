@@ -3,12 +3,9 @@ import NavigationBar from "./NavigationBar";
 
 const Layout: NextPage = ({ children }) => {
   return (
-    <div
-      className="sm:min-w-screen-sm md:min-w-screen-md lg:min-w-screen-lg xl:min-w-screen-xl  min-h-screen
-      bg-amber-50 text-zinc-800 dark:bg-zinc-800 dark:text-amber-50"
-    >
+    <div className="min-h-screen w-full bg-amber-50 text-zinc-800 dark:bg-zinc-800 dark:text-amber-50">
       <NavigationBar />
-      <main className="flex w-full select-none items-center justify-center pt-12 xl:pt-16">
+      <main className="mx-auto select-none pt-12 [width:calc(100%-2em)] lg:w-[1024px] xl:w-[1376px] xl:pt-16 2xl:w-[1728px]">
         {children}
       </main>
     </div>

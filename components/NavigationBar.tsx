@@ -20,18 +20,20 @@ export default function NavigationBar() {
   const onClick = () => {
     router.push("/");
   };
+
   return (
     <div
       className="
-      fixed z-[9999] h-12
-      w-full bg-gradient-to-b from-amber-100 to-amber-50
-    px-2 dark:from-zinc-900
-      dark:to-zinc-800 xl:h-16
+        fixed left-1/2 z-[9999] flex h-12 w-full -translate-x-1/2
+        items-center justify-center
+        bg-gradient-to-b from-amber-100 to-amber-50 dark:from-zinc-900
+      dark:to-zinc-800
     "
     >
       <div
-        className="flex h-full w-full items-center
-        justify-between xl:mx-auto xl:w-4/5
+        className="flex h-full items-center justify-between
+        [width:calc(100%-2em)] lg:mx-auto
+        lg:w-[1024px] xl:w-[1376px] 2xl:w-[1728px]
       "
       >
         <div className="flex flex-row items-center justify-center gap-1">

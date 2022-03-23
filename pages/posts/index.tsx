@@ -12,7 +12,7 @@ const Posts: NextPage = () => {
     value === "recent" ? setType("recent") : setType("tag");
   };
   return (
-    <div className="mx-auto mt-5 flex w-11/12 flex-col items-center justify-center pb-12">
+    <div className="mt-5 w-full pb-12">
       <div className="flex w-full flex-row items-center justify-start gap-5">
         <button
           onClick={onSelect}
@@ -39,7 +39,11 @@ const Posts: NextPage = () => {
           Tag
         </button>
       </div>
-      {type === "recent" ? <Items /> : <Tags />}
+      <div className="mt-4 flex">
+        <div className="box-border flex-1">
+          {type === "recent" ? <Items /> : <Tags />}
+        </div>
+      </div>
     </div>
   );
 };
