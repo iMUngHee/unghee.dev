@@ -32,8 +32,9 @@ export default function NavigationBar() {
     >
       <div
         className="flex h-full items-center justify-between
-        [width:calc(100%-2em)] lg:mx-auto
-        lg:w-[1024px] xl:w-[1376px] 2xl:w-[1728px]
+        [width:calc(100%-2em)]
+        lg:mx-auto lg:w-[1024px] xl:w-[1376px]
+        2xl:w-[1728px]
       "
       >
         <div className="flex flex-row items-center justify-center gap-1">
@@ -78,9 +79,6 @@ export default function NavigationBar() {
               </Link>
               <Link href="/posts">
                 <a>Posts</a>
-              </Link>
-              <Link href="/movies">
-                <a>Movies</a>
               </Link>
             </nav>
           </div>
@@ -156,9 +154,6 @@ export default function NavigationBar() {
             </Link>
             <Link href="/posts">
               <a>Posts</a>
-            </Link>
-            <Link href="/movies">
-              <a>Movies</a>
             </Link>
           </nav>
         </div>
