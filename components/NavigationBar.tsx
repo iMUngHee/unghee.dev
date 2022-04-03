@@ -26,14 +26,14 @@ export default function NavigationBar() {
       className="
         fixed left-1/2 z-[9999] flex h-12 w-full -translate-x-1/2
         items-center justify-center
-        bg-gradient-to-b from-amber-100 to-amber-50 dark:from-zinc-900
-      dark:to-zinc-800
+        backdrop-blur-xl backdrop-filter
     "
     >
       <div
-        className="flex h-full items-center justify-between
-        [width:calc(100%-2em)]
-        lg:mx-auto lg:w-[1024px] xl:w-[1376px]
+        className="z-30 flex h-full items-center
+        justify-between
+        [width:calc(100%-2em)] lg:mx-auto lg:w-[1024px]
+        xl:w-[1376px]
         2xl:w-[1728px]
       "
       >
