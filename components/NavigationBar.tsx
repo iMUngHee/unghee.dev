@@ -87,7 +87,7 @@ export default function NavigationBar() {
               dark:text-amber-50 xl:text-lg
               "
             >
-              <Link href="/about">
+              <Link href="/">
                 <a className="transition-all hover:scale-110">About</a>
               </Link>
               <Link href="/works">
@@ -177,7 +177,7 @@ export default function NavigationBar() {
               transition={{ duration: 0.5 }}
             >
               <nav className="flex select-none flex-col items-center justify-center py-1 text-amber-50 dark:text-zinc-800">
-                <Link href="/about">
+                <Link href="/">
                   <a className="transition-all hover:scale-110">About</a>
                 </Link>
                 <Link href="/works">
