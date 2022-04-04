@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider attribute="class" enableSystem={true}>
         <Layout>
-          <AnimatePresence exitBeforeEnter initial>
+          <AnimatePresence exitBeforeEnter initial={true}>
             <Component {...pageProps} />
           </AnimatePresence>
         </Layout>
