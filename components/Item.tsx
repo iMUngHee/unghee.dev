@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface IItem {
   id: number;
@@ -9,6 +10,12 @@ interface IItem {
   date: string;
 }
 
+const variants = {
+  hidden: { opacity: 0, x: 0, y: 20 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: -0, y: 20 },
+};
+
 export default function Item({
   id,
   img,
@@ -18,7 +25,7 @@ export default function Item({
   date,
 }: IItem) {
   return (
-    <div
+    <motion.div
       key={id}
       className="m-4 flex
         w-full flex-col
@@ -28,6 +35,11 @@ export default function Item({
         dark:shadow-slate-900 
         md:[width:calc(50%-2rem)] lg:w-[20rem]
       "
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      variants={variants}
+      transition={{ duration: 0.4, type: "easeInOut" }}
     >
       <div className="relative h-[18rem] w-full overflow-hidden rounded-t-md">
         <Image
@@ -67,6 +79,6 @@ export default function Item({
           </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

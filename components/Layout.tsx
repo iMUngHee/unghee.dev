@@ -9,7 +9,10 @@ const Layout: NextPage = ({ children }) => {
     dark:bg-zinc-800 dark:text-amber-50"
     >
       <NavigationBar />
-      <main className="mx-auto select-none pt-12 [width:calc(100%-2em)] lg:w-[1024px] xl:w-[1376px] xl:pt-16 2xl:w-[1728px]">
+      <main
+        className="mx-auto select-none pt-12 [width:calc(100%-2em)]
+      lg:w-[1024px] xl:w-[1376px] xl:pt-16 2xl:w-[1728px]"
+      >
         {children}
       </main>
     </div>

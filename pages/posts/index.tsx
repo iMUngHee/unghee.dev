@@ -3,6 +3,7 @@ import Tags from "@components/Tags";
 import cls from "@libs/cls";
 import { NextPage } from "next";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 type TPosts = "recent" | "tag";
 
@@ -17,26 +18,28 @@ const Posts: NextPage = () => {
         <button
           onClick={onSelect}
           value="recent"
-          className={cls(
-            "font-['RocknRoll_One']",
-            type === "recent"
-              ? "border-b-2 border-black dark:border-amber-50"
-              : "",
-          )}
+          className="font-['RocknRoll_One']"
         >
           Recent
+          {type === "recent" ? (
+            <motion.div
+              layoutId="underline"
+              className="border-b-2 border-black pt-1"
+            />
+          ) : null}
         </button>
         <button
           value="tag"
           onClick={onSelect}
-          className={cls(
-            "font-['RocknRoll_One']",
-            type === "recent"
-              ? ""
-              : "border-b-2 border-black dark:border-amber-50",
-          )}
+          className="font-['RocknRoll_One']"
         >
           Tag
+          {type === "tag" ? (
+            <motion.div
+              layoutId="underline"
+              className="border-b-2 border-black pt-1"
+            />
+          ) : null}
         </button>
       </div>
       <div className="mt-4 flex">
