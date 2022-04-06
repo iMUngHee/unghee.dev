@@ -24,9 +24,10 @@ export default function Item({
   description,
   tags,
   date,
+  slug,
 }: IItem) {
   return (
-    <Link passHref href={`/posts/${id}`}>
+    <Link passHref href={`/posts/${slug}`}>
       <motion.a
         key={id}
         className="m-4 flex

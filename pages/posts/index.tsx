@@ -1,13 +1,15 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 import Items from "@components/Items";
 import Tags from "@components/Tags";
-import cls from "@libs/cls";
 import { NextPage } from "next";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
 type TPosts = "recent" | "tag";
 
-const Posts: NextPage = () => {
+const Posts: NextPage = ({ posts }: any) => {
   const [type, setType] = useState<TPosts>("recent");
   const onSelect = ({ target: { value } }: any) => {
     value === "recent" ? setType("recent") : setType("tag");
@@ -44,7 +46,7 @@ const Posts: NextPage = () => {
       </div>
       <div className="mt-4 flex">
         <div className="box-border flex-1">
-          {type === "recent" ? <Items /> : <Tags />}
+          {type === "recent" ? <Items posts={posts} /> : <Tags />}
         </div>
       </div>
     </div>
@@ -52,3 +54,27 @@ const Posts: NextPage = () => {
 };
 
 export default Posts;
+
+export async function getStaticProps() {
+  const files = fs.readdirSync(path.join("docs"));
+
+  const posts = files.map((filename) => {
+    const slug = filename.replace(".md", "");
+    const markdownWithMeta = fs.readFileSync(
+      path.join("docs", filename),
+      "utf-8",
+    );
+
+    const { data: frontMatter } = matter(markdownWithMeta);
+    return {
+      slug,
+      frontMatter,
+    };
+  });
+  console.log(posts);
+  return {
+    props: {
+      posts,
+    },
+  };
+}

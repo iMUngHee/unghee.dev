@@ -5,9 +5,6 @@ const nextConfig = {
   experimental: {
     reactRoot: true,
   },
-  images: {
-    domains: ["media.vlpt.us"],
-  },
 };
 
 module.exports = nextConfig;
