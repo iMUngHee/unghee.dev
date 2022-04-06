@@ -1,14 +1,16 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import React from "react";
 
-interface IItem {
+export interface ItemType {
   id: number;
   img: string;
   title: string;
   description: string;
   tags: string[];
   date: string;
+  slug: string;
 }
 
 const variants = {
@@ -17,7 +19,7 @@ const variants = {
   exit: { opacity: 0, x: 0, y: 20 },
 };
 
-export default function Item({
+const Item: React.FC<ItemType> = ({
   id,
   img,
   title,
@@ -25,7 +27,7 @@ export default function Item({
   tags,
   date,
   slug,
-}: IItem) {
+}) => {
   return (
     <Link passHref href={`/posts/${slug}`}>
       <motion.a
@@ -85,4 +87,6 @@ export default function Item({
       </motion.a>
     </Link>
   );
-}
+};
+
+export default Item;

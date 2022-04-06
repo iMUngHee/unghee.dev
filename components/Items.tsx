@@ -1,20 +1,14 @@
+import { DocsDataType } from "pages/posts";
+import React from "react";
 import Item from "./Item";
 
-interface IItem {
-  id: number;
-  img: string;
-  title: string;
-  description: string;
-  tags: string[];
-  date: string;
-}
-
-export default function Items({ posts }: any) {
+const Items: React.FC<DocsDataType> = ({ posts }) => {
   return (
     <div className="-m-4 flex flex-wrap">
       {posts.map((post, index) => (
         <Item
           key={index}
+          id={index}
           slug={post.slug}
           img={post.frontMatter.cover_image}
           title={post.frontMatter.title}
@@ -25,4 +19,6 @@ export default function Items({ posts }: any) {
       ))}
     </div>
   );
-}
+};
+
+export default Items;

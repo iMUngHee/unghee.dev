@@ -2,16 +2,19 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
-import { NextPage } from "next";
-import { useRouter } from "next/router";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { PostType } from ".";
+import { ParsedUrlQuery } from "querystring";
 
-const Detail: NextPage = ({
+interface SlugType extends PostType {
+  content: string;
+}
+
+const Detail: NextPage<SlugType> = ({
   frontMatter: { title, date, cover_image },
   slug,
   content,
-}: any) => {
-  const router = useRouter();
-  const body = marked(content);
+}) => {
   return (
     <>
       <div>
@@ -21,11 +24,7 @@ const Detail: NextPage = ({
           <div
             className="prose prose-2xl dark:prose-invert"
             dangerouslySetInnerHTML={{ __html: marked(content) }}
-          >
-            {/* {body} */}
-            {/* {"<h2> abc </h2>"} */}
-            {/* {{content | safe}} */}
-          </div>
+          />
         </div>
       </div>
     </>
@@ -34,7 +33,7 @@ const Detail: NextPage = ({
 
 export default Detail;
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync(path.join("docs"));
   const paths = files.map((filename) => ({
     params: {
@@ -42,8 +41,14 @@ export async function getStaticPaths() {
     },
   }));
   return { paths, fallback: false };
+};
+
+interface ParamsType extends ParsedUrlQuery {
+  slug: string;
 }
-export async function getStaticProps({ params: { slug } }: any) {
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const { slug } = ctx.params as ParamsType;
   const markdownWithMeta = fs.readFileSync(
     path.join("docs", slug + ".md"),
     "utf-8",
@@ -56,4 +61,4 @@ export async function getStaticProps({ params: { slug } }: any) {
       content,
     },
   };
-}
+};

@@ -3,13 +3,27 @@ import path from "path";
 import matter from "gray-matter";
 import Items from "@components/Items";
 import Tags from "@components/Tags";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+export interface PostType {
+  slug: string;
+  frontMatter: {
+    title: string;
+    date: string;
+    excerpt: string;
+    cover_image: string;
+  };
+}
+
+export interface DocsDataType {
+  posts: PostType[];
+}
+
 type TPosts = "recent" | "tag";
 
-const Posts: NextPage = ({ posts }: any) => {
+const Posts: NextPage<DocsDataType> = ({ posts }) => {
   const [type, setType] = useState<TPosts>("recent");
   const onSelect = ({ target: { value } }: any) => {
     value === "recent" ? setType("recent") : setType("tag");
@@ -55,7 +69,7 @@ const Posts: NextPage = ({ posts }: any) => {
 
 export default Posts;
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const files = fs.readdirSync(path.join("docs"));
 
   const posts = files.map((filename) => {
@@ -71,10 +85,10 @@ export async function getStaticProps() {
       frontMatter,
     };
   });
-  console.log(posts);
+
   return {
     props: {
       posts,
     },
   };
-}
+};
