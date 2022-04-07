@@ -5,29 +5,60 @@ import { marked } from "marked";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { PostType } from ".";
 import { ParsedUrlQuery } from "querystring";
+import Image from "next/image";
 
 interface SlugType extends PostType {
   content: string;
 }
 
 const Detail: NextPage<SlugType> = ({
-  frontMatter: { title, date, cover_image },
+  frontMatter: { title, date, cover_image, tags },
   slug,
   content,
 }) => {
   return (
-    <>
-      <div>
-        <h1>{title}</h1>
-        <div>Posted on {date}</div>
+    <div className="flex w-full justify-center">
+      <div className="flex w-full flex-col md:w-[768px]">
+        <div className="mt-14">
+          <div className="px-8">
+            <h1 className="text-3xl font-bold lg:text-4xl">{title}</h1>
+            <div className="flex items-center justify-end pt-2">{date}</div>
+            <div className="flex items-center justify-end pt-2">
+              {tags.map((tag, idx) => (
+                <div
+                  key={idx}
+                  className="ml-2 rounded-xl bg-slate-900 px-2 py-[0.125rem] text-xs text-amber-50
+                  peer-valid:mt-1  dark:bg-amber-50 dark:text-zinc-900 lg:text-sm"
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         <div>
-          <div
-            className="prose prose-2xl dark:prose-invert"
-            dangerouslySetInnerHTML={{ __html: marked(content) }}
-          />
+          <div className="my-7 px-8">
+            <div className="overflow-hidden rounded-md">
+              <Image
+                src={cover_image}
+                alt="thumbnail"
+                layout="responsive"
+                width={500}
+                height={300}
+              />
+            </div>
+            <div className="pt-5">
+              <div
+                className="prose prose-lg prose-zinc prose-img:rounded-md dark:prose-invert 
+                  md:prose-xl
+                "
+                dangerouslySetInnerHTML={{ __html: marked(content) }}
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

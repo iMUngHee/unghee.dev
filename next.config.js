@@ -4,6 +4,9 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     reactRoot: true,
+    images: {
+      layoutRaw: true,
+    },
   },
 };
 
