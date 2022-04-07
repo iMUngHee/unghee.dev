@@ -12,8 +12,9 @@ export interface PostType {
   frontMatter: {
     title: string;
     date: string;
-    excerpt: string;
+    tags: string[];
     cover_image: string;
+    description: string;
   };
 }
 
@@ -85,7 +86,7 @@ export const getStaticProps: GetStaticProps = async () => {
       frontMatter,
     };
   });
-
+  console.dir(posts);
   return {
     props: {
       posts,

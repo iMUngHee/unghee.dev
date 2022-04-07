@@ -12,8 +12,8 @@ const Items: React.FC<DocsDataType> = ({ posts }) => {
           slug={post.slug}
           img={post.frontMatter.cover_image}
           title={post.frontMatter.title}
-          tags={["tags"]}
-          description={"post.description"}
+          tags={post.frontMatter.tags}
+          description={post.frontMatter.description}
           date={post.frontMatter.date}
         />
       ))}
