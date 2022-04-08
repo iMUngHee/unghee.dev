@@ -14,11 +14,6 @@ description: "Description for Test"
 
 2. #### 과정
 
-```java
-Ex) 2, 7, 6, 3, 5, 9을 Monotonic Stack에 넣을 때 (오름차순)
-[2] -> [2, 7] -> [2, 6] (pop 7)  -> [2, 3] (pop 6) -> [2, 3, 5] -> [2, 3, 5, 9]
-```
-
 3. #### 코드
 
 ```cpp
@@ -47,6 +42,38 @@ int main() {
 }
 ```
 
+```javascript
+function abc() {
+  console.log(abc);
+}
+const abc = () => {
+  return abc;
+};
+```
+
+```html
+<div></div>
+<head> </head>
+<img src="alsdkfjalsdkjf" alt="dajslkfjasld" />
+```
+
+```swift
+var abc: String = "abcbacb";
+func asdf() -> Int {
+  print(asbc)
+}
+```
+
+```css
+.body {
+  background: white;
+}
+
+body {
+  background: #000000;
+}
+```
+
 4. #### 결과
    ![Result](https://images.velog.io/images/ung7497/post/13ada08e-2981-4fe2-a8dc-c1488f00e253/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202021-12-20%20%EC%98%A4%ED%9B%84%2010.59.09.png)
 
@@ -56,4 +83,8 @@ int main() {
 <br>
 
 > Ref.
-> [Special Data Structure: Monotonic Stack](https://labuladong.gitbook.io/algo-en/ii.-data-structure/monotonicstack) > [monotone stack](https://justicehui.github.io/medium-algorithm/2019/01/01/monotoneStack/) > [Algorithms for Interview 2: Monotonic Stack](https://medium.com/techtofreedom/algorithms-for-interview-2-monotonic-stack-462251689da8)
+> [Special Data Structure: Monotonic Stack](https://labuladong.gitbook.io/algo-en/ii.-data-structure/monotonicstack)
+
+> [monotone stack](https://justicehui.github.io/medium-algorithm/2019/01/01/monotoneStack/)
+
+> [Algorithms for Interview 2: Monotonic Stack](https://medium.com/techtofreedom/algorithms-for-interview-2-monotonic-stack-462251689da8)

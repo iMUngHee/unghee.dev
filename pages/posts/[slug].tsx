@@ -1,11 +1,13 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import hljs from "highlight.js";
 import { marked } from "marked";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { PostType } from ".";
 import { ParsedUrlQuery } from "querystring";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface SlugType extends PostType {
   content: string;
@@ -16,6 +18,23 @@ const Detail: NextPage<SlugType> = ({
   slug,
   content,
 }) => {
+  const [markedContent, setMarkedContent] = useState<string>();
+  useEffect(() => {
+    marked.setOptions({
+      langPrefix: "hljs language-",
+      highlight: function (code) {
+        return hljs.highlightAuto(code, [
+          "cpp",
+          "javascript",
+          "html",
+          "css",
+          "swift",
+        ]).value;
+      },
+    });
+    setMarkedContent(marked(content));
+    console.log(markedContent);
+  }, [content]);
   return (
     <div className="flex w-full justify-center">
       <div className="flex w-full flex-col md:w-[768px]">
@@ -27,7 +46,7 @@ const Detail: NextPage<SlugType> = ({
               {tags.map((tag, idx) => (
                 <div
                   key={idx}
-                  className="ml-2 rounded-xl bg-slate-900 px-2 py-[0.125rem] text-xs text-amber-50
+                  className="ml-2 rounded-xl bg-zinc-800 px-2 py-[0.125rem] text-xs text-amber-50
                   peer-valid:mt-1  dark:bg-amber-50 dark:text-zinc-900 lg:text-sm"
                 >
                   {tag}
@@ -52,7 +71,7 @@ const Detail: NextPage<SlugType> = ({
                 className="prose prose-lg prose-zinc prose-img:rounded-md dark:prose-invert 
                   md:prose-xl
                 "
-                dangerouslySetInnerHTML={{ __html: marked(content) }}
+                dangerouslySetInnerHTML={{ __html: markedContent! }}
               />
             </div>
           </div>
@@ -84,6 +103,12 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     path.join("docs", slug + ".md"),
     "utf-8",
   );
+  // marked.setOptions({
+  //   langPrefix: "hljs language-",
+  //   highlight: function (code) {
+  //     return hljs.highlightAuto(code, ["html", "javascript"]).value;
+  //   },
+  // });
   const { data: frontMatter, content } = matter(markdownWithMeta);
   return {
     props: {

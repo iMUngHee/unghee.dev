@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps = async () => {
       frontMatter,
     };
   });
-  console.dir(posts);
+
   return {
     props: {
       posts,
