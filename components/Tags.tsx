@@ -1,4 +1,5 @@
 import { TagCloud } from "react-tagcloud";
+import Layout from "./Layout/article";
 
 const fakeTags = [
   {
@@ -183,13 +184,15 @@ const customRenderer = (tag: any, size: number) => {
 
 export default function Tags() {
   return (
-    <div className="flex h-full w-full items-center justify-center text-left">
-      <TagCloud
-        tags={fakeTags}
-        maxSize={5}
-        minSize={2}
-        renderer={customRenderer}
-      />
-    </div>
+    <Layout title="Tags">
+      <div className="flex h-full w-full items-center justify-center text-left">
+        <TagCloud
+          tags={fakeTags}
+          maxSize={5}
+          minSize={2}
+          renderer={customRenderer}
+        />
+      </div>
+    </Layout>
   );
 }

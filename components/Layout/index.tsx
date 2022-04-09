@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "../NavigationBar";
 
 const Layout: NextPage = ({ children }) => {
   return (

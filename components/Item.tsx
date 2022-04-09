@@ -13,12 +13,6 @@ export interface ItemType {
   slug: string;
 }
 
-const variants = {
-  hidden: { opacity: 0, x: 0, y: 20 },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: { opacity: 0, x: 0, y: 20 },
-};
-
 const Item: React.FC<ItemType> = ({
   id,
   img,
@@ -30,7 +24,7 @@ const Item: React.FC<ItemType> = ({
 }) => {
   return (
     <Link passHref href={`/posts/${slug}`}>
-      <motion.a
+      <a
         key={id}
         className="m-4 flex
         w-full flex-col
@@ -40,11 +34,6 @@ const Item: React.FC<ItemType> = ({
         dark:shadow-slate-900 
         md:[width:calc(50%-2rem)] lg:w-[20rem]
       "
-        initial="hidden"
-        animate="enter"
-        exit="exit"
-        variants={variants}
-        transition={{ duration: 0.5, type: "easeInOut" }}
       >
         <div className="relative h-[18rem] w-full overflow-hidden rounded-t-md">
           <Image
@@ -84,7 +73,7 @@ const Item: React.FC<ItemType> = ({
             </span>
           </div>
         </div>
-      </motion.a>
+      </a>
     </Link>
   );
 };

@@ -5,7 +5,7 @@ import Items from "@components/Items";
 import Tags from "@components/Tags";
 import { GetStaticProps, NextPage } from "next";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export interface PostType {
   slug: string;

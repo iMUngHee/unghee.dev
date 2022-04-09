@@ -4,13 +4,13 @@ import { ThemeProvider } from "next-themes";
 import Layout from "@components/Layout";
 import { AnimatePresence } from "framer-motion";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <ThemeProvider attribute="class" enableSystem={true}>
         <Layout>
           <AnimatePresence exitBeforeEnter initial={true}>
-            <Component {...pageProps} />
+            <Component {...pageProps} key={router.route} />
           </AnimatePresence>
         </Layout>
       </ThemeProvider>
