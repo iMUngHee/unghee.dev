@@ -76,6 +76,23 @@ const Detail: NextPage<SlugType> = ({
             </div>
           </div>
         </div>
+        <div className="my-2 flex items-center justify-between border-y-2 border-zinc-100 px-1 py-2">
+          <button
+            className="text-md rounded-md bg-zinc-700 py-1 px-3 text-center text-amber-50
+          shadow-md dark:bg-amber-50 dark:text-zinc-800"
+          >
+            {"<-"} What is a React Hooks?
+          </button>
+          <button
+            className="text-md rounded-md bg-zinc-700 py-1 px-3 text-center text-amber-50
+          shadow-md dark:bg-amber-50 dark:text-zinc-800"
+          >
+            Do you know React is a bull shit? {"->"}
+          </button>
+        </div>
+        <footer className="mb-5 flex items-center justify-center p-2 text-sm text-slate-400">
+          © 2022 Unghee Lee. All Rights Reserved.
+        </footer>
       </div>
     </div>
   );
