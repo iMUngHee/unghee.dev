@@ -1,7 +1,7 @@
-import { DocsDataType } from "pages/posts";
-import React from "react";
-import Item from "./Item";
-import Layout from "./Layout/article";
+import { DocsDataType } from 'pages/posts';
+import React from 'react';
+import Item from './Item';
+import Layout from './Layout/animate';
 
 const Items: React.FC<DocsDataType> = ({ posts }) => {
   return (

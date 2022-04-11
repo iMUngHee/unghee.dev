@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import { NextPage } from "next";
-import Head from "next/head";
+import { motion } from 'framer-motion';
+import { NextPage } from 'next';
+import Head from 'next/head';
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -19,7 +19,7 @@ const Layout: NextPage<LayoutType> = ({ children, title, key }) => (
     animate="enter"
     exit="exit"
     variants={variants}
-    transition={{ duration: 0.4, type: "easeInOut" }}
+    transition={{ duration: 0.4, type: 'easeInOut' }}
   >
     <>
       {title && (

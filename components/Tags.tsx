@@ -1,165 +1,165 @@
-import { TagCloud } from "react-tagcloud";
-import Layout from "./Layout/article";
+import { TagCloud } from 'react-tagcloud';
+import Layout from './Layout/animate';
 
 const fakeTags = [
   {
-    value: "React",
+    value: 'React',
     count: 54,
   },
   {
-    value: "JS",
+    value: 'JS',
     count: 30,
   },
   {
-    value: "TS",
+    value: 'TS',
     count: 14,
   },
   {
-    value: "Framework",
+    value: 'Framework',
     count: 22,
   },
   {
-    value: "Algorithm",
+    value: 'Algorithm',
     count: 8,
   },
   {
-    value: "ReactNative",
+    value: 'ReactNative',
     count: 5,
   },
   {
-    value: "Swift",
+    value: 'Swift',
     count: 45,
   },
   {
-    value: "CS",
+    value: 'CS',
     count: 30,
   },
   {
-    value: "ML",
+    value: 'ML',
     count: 2,
   },
   {
-    value: "NodeJS",
+    value: 'NodeJS',
     count: 43,
   },
   {
-    value: "React",
+    value: 'React',
     count: 54,
   },
   {
-    value: "JS",
+    value: 'JS',
     count: 30,
   },
   {
-    value: "TS",
+    value: 'TS',
     count: 14,
   },
   {
-    value: "Framework",
+    value: 'Framework',
     count: 22,
   },
   {
-    value: "Algorithm",
+    value: 'Algorithm',
     count: 8,
   },
   {
-    value: "ReactNative",
+    value: 'ReactNative',
     count: 5,
   },
   {
-    value: "Swift",
+    value: 'Swift',
     count: 45,
   },
   {
-    value: "CS",
+    value: 'CS',
     count: 30,
   },
   {
-    value: "ML",
+    value: 'ML',
     count: 2,
   },
   {
-    value: "NodeJS",
+    value: 'NodeJS',
     count: 43,
   },
   {
-    value: "React",
+    value: 'React',
     count: 54,
   },
   {
-    value: "JS",
+    value: 'JS',
     count: 30,
   },
   {
-    value: "TS",
+    value: 'TS',
     count: 14,
   },
   {
-    value: "Framework",
+    value: 'Framework',
     count: 22,
   },
   {
-    value: "Algorithm",
+    value: 'Algorithm',
     count: 8,
   },
   {
-    value: "ReactNative",
+    value: 'ReactNative',
     count: 5,
   },
   {
-    value: "Swift",
+    value: 'Swift',
     count: 45,
   },
   {
-    value: "CS",
+    value: 'CS',
     count: 30,
   },
   {
-    value: "ML",
+    value: 'ML',
     count: 2,
   },
   {
-    value: "NodeJS",
+    value: 'NodeJS',
     count: 43,
   },
   {
-    value: "React",
+    value: 'React',
     count: 54,
   },
   {
-    value: "JS",
+    value: 'JS',
     count: 30,
   },
   {
-    value: "TS",
+    value: 'TS',
     count: 14,
   },
   {
-    value: "Framework",
+    value: 'Framework',
     count: 22,
   },
   {
-    value: "Algorithm",
+    value: 'Algorithm',
     count: 8,
   },
   {
-    value: "ReactNative",
+    value: 'ReactNative',
     count: 5,
   },
   {
-    value: "Swift",
+    value: 'Swift',
     count: 45,
   },
   {
-    value: "CS",
+    value: 'CS',
     count: 30,
   },
   {
-    value: "ML",
+    value: 'ML',
     count: 2,
   },
   {
-    value: "NodeJS",
+    value: 'NodeJS',
     count: 43,
   },
 ];
@@ -171,10 +171,10 @@ const customRenderer = (tag: any, size: number) => {
       key={tag.value}
       style={{
         fontSize: `${size / 2}em`,
-        margin: "0 3px",
-        padding: "0 3px",
-        display: "inline-block",
-        fontFamily: "RocknRoll One",
+        margin: '0 3px',
+        padding: '0 3px',
+        display: 'inline-block',
+        fontFamily: 'RocknRoll One',
       }}
     >
       {tag.value}
