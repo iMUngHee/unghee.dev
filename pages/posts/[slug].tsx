@@ -1,14 +1,15 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import hljs from "highlight.js";
-import { marked } from "marked";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { PostType } from ".";
-import { ParsedUrlQuery } from "querystring";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import Layout from "@components/Layout/article";
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import hljs from 'highlight.js';
+import { marked } from 'marked';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { PostType } from '.';
+import { ParsedUrlQuery } from 'querystring';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import Layout from '@components/Layout/article';
+import Footer from '@components/Footer';
 
 interface SlugType extends PostType {
   content: string;
@@ -22,14 +23,14 @@ const Detail: NextPage<SlugType> = ({
   const [markedContent, setMarkedContent] = useState<string>();
   useEffect(() => {
     marked.setOptions({
-      langPrefix: "hljs language-",
+      langPrefix: 'hljs language-',
       highlight: function (code) {
         return hljs.highlightAuto(code, [
-          "cpp",
-          "javascript",
-          "html",
-          "css",
-          "swift",
+          'cpp',
+          'javascript',
+          'html',
+          'css',
+          'swift',
         ]).value;
       },
     });
@@ -82,18 +83,16 @@ const Detail: NextPage<SlugType> = ({
               className="text-md rounded-md bg-zinc-700 py-1 px-3 text-center text-amber-50
           shadow-md dark:bg-amber-50 dark:text-zinc-800"
             >
-              {"<-"} What is a React Hooks?
+              {'<-'} What is a React Hooks?
             </button>
             <button
               className="text-md rounded-md bg-zinc-700 py-1 px-3 text-center text-amber-50
           shadow-md dark:bg-amber-50 dark:text-zinc-800"
             >
-              Do you know React is a bull shit? {"->"}
+              Do you know React is a bull shit? {'->'}
             </button>
           </div>
-          <footer className="mb-5 flex items-center justify-center p-2 text-sm text-slate-400">
-            © 2022 Unghee Lee. All Rights Reserved.
-          </footer>
+          <Footer />
         </div>
       </div>
     </Layout>
@@ -103,10 +102,10 @@ const Detail: NextPage<SlugType> = ({
 export default Detail;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = fs.readdirSync(path.join("docs"));
+  const files = fs.readdirSync(path.join('docs'));
   const paths = files.map((filename) => ({
     params: {
-      slug: filename.replace(".md", ""),
+      slug: filename.replace('.md', ''),
     },
   }));
   return { paths, fallback: false };
@@ -119,8 +118,8 @@ interface ParamsType extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params as ParamsType;
   const markdownWithMeta = fs.readFileSync(
-    path.join("docs", slug + ".md"),
-    "utf-8",
+    path.join('docs', slug + '.md'),
+    'utf-8',
   );
 
   const { data: frontMatter, content } = matter(markdownWithMeta);
