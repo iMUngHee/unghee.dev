@@ -2,6 +2,7 @@ import Footer from '@components/Footer';
 import Layout from '@components/Layout/animate';
 import Container from '@components/Layout/ariticle';
 import type { NextPage } from 'next';
+import Image from 'next/image';
 
 const Home: NextPage = () => {
   return (
@@ -15,7 +16,9 @@ const Home: NextPage = () => {
             <h2 className="text-3xl font-bold">Lee Unghee</h2>
             <p className="mt-1">Developer ( Front-End / iOS ) </p>
             <div className="mt-5 flex w-full items-center justify-center">
-              <div className="h-24 w-24 rounded-full bg-cyan-400" />
+              <div className="relative h-24 w-24 overflow-hidden rounded-full shadow-2xl md:h-36 md:w-36">
+                <Image src="/image/profile.png" alt="profile" layout="fill" />
+              </div>
             </div>
           </div>
           <div>
