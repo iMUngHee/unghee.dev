@@ -11,6 +11,20 @@
   overflow-x: auto;
   padding: 0.5rem;
   background: rgb(39 39 42);
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hljs::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.dark .hljs {
+  background-color: rgb(17 24 39);
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .hljs-built_in,
