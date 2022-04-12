@@ -10,7 +10,7 @@ const Items: React.FC<DocsDataType> = ({ posts }) => {
         {posts.map((post, index) => (
           <Item
             key={index}
-            id={index}
+            id={post.frontMatter.id}
             slug={post.slug}
             img={post.frontMatter.cover_image}
             title={post.frontMatter.title}
