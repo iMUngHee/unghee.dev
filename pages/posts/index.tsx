@@ -87,10 +87,11 @@ export const getStaticProps: GetStaticProps = async () => {
       frontMatter,
     };
   });
+  const ordered = posts.sort((a, b) => b.frontMatter.id - a.frontMatter.id);
 
   return {
     props: {
-      posts,
+      posts: ordered,
     },
   };
 };
