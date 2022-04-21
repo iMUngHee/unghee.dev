@@ -10,8 +10,16 @@ const Home: NextPage = () => {
   return (
     <Layout title="Home">
       <Container>
-        <div className="mt-5 flex w-full items-center justify-center">
-          <div className="h-60 w-60 rounded-full bg-cyan-400" />
+        <div className="relative m-auto mt-5 flex h-80 w-[80%] items-center justify-center overflow-hidden rounded-md">
+          <Image
+            src={'/image/background.png'}
+            layout="fill"
+            // width={500}
+            // height={300}
+            objectFit="cover"
+            alt="background"
+            className="object-center"
+          />
         </div>
         <div className="mt-5 px-3">
           <div>
