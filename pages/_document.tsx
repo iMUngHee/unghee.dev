@@ -4,7 +4,7 @@ import Document, {
   Html,
   Main,
   NextScript,
-} from "next/document";
+} from 'next/document';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -15,7 +15,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html className="scrollbar-hide">
         <Head>
           <link
             href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap"
