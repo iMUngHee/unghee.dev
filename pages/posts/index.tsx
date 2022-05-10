@@ -5,7 +5,7 @@ import Items from '@components/Items';
 import Tags from '@components/Tags';
 import { GetStaticProps, NextPage } from 'next';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export interface PostType {
   slug: string;
@@ -19,13 +19,19 @@ export interface PostType {
   };
 }
 
+export interface TagType {
+  value: string;
+  count: number;
+}
+
 export interface DocsDataType {
-  posts: PostType[];
+  posts?: PostType[];
+  tagInfo?: TagType[];
 }
 
 type TPosts = 'recent' | 'tag';
 
-const Posts: NextPage<DocsDataType> = ({ posts }) => {
+const Posts: NextPage<DocsDataType> = ({ posts, tagInfo }) => {
   const [type, setType] = useState<TPosts>('recent');
   const onSelect = ({ target: { value } }: any) => {
     value === 'recent' ? setType('recent') : setType('tag');
@@ -62,7 +68,11 @@ const Posts: NextPage<DocsDataType> = ({ posts }) => {
       </div>
       <div className="mt-4 flex">
         <div className="box-border flex-1">
-          {type === 'recent' ? <Items posts={posts} /> : <Tags />}
+          {type === 'recent' ? (
+            <Items posts={posts} />
+          ) : (
+            <Tags tagInfo={tagInfo} />
+          )}
         </div>
       </div>
     </div>
@@ -89,9 +99,23 @@ export const getStaticProps: GetStaticProps = async () => {
   });
   const ordered = posts.sort((a, b) => b.frontMatter.id - a.frontMatter.id);
 
+  const tagInfo: TagType[] = [];
+
+  ordered
+    .map((post) => post.frontMatter.tags)
+    .flat(2)
+    .forEach((tag) => {
+      if (tagInfo.filter((e) => e.value === tag).length > 0) {
+        tagInfo.forEach((e) => e.value === tag && e.count++);
+      } else {
+        tagInfo.push({ value: `${tag}`, count: 0 });
+      }
+    });
+
   return {
     props: {
       posts: ordered,
+      tagInfo,
     },
   };
 };
