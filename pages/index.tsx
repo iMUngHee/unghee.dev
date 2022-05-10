@@ -1,7 +1,7 @@
 import Footer from '@components/Footer';
 import HeadLine from '@components/headLine';
 import Layout from '@components/Layout/animate';
-import Container from '@components/Layout/ariticle';
+import Container from '@components/Layout/article';
 import Paragraph from '@components/paragraph';
 import type { NextPage } from 'next';
 import Image from 'next/image';
