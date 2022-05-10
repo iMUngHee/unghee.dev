@@ -13,6 +13,7 @@ import Layout from '@components/Layout/animate';
 import Footer from '@components/Footer';
 import Container from '@components/Layout/article';
 import Link from 'next/link';
+import cls from '@libs/cls';
 
 interface SlugType extends PostType {
   content: string;
@@ -104,7 +105,14 @@ const Detail: NextPage<SlugType> = ({
             </div>
           </div>
         </div>
-        <div className="my-2 flex w-full flex-col items-center justify-between gap-4 px-1 py-2 md:flex-row">
+        <div
+          className={cls(
+            'my-2 flex w-full flex-col items-center gap-4 px-1 py-2 md:flex-row',
+            hasAdjacent === Adjacent.ONLY_NEXT
+              ? 'justify-end'
+              : 'justify-between',
+          )}
+        >
           {hasAdjacent !== Adjacent.ONLY_NEXT && (
             <motion.button
               className="text-md flex h-14 w-full items-center justify-start rounded-md
@@ -232,8 +240,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const adjacentPosts = posts
     .filter((post) => Math.abs(post.frontMatter.id - frontMatter.id) === 1)
     .sort((a, b) => a.frontMatter.id - b.frontMatter.id);
-
-  console.log(adjacentPosts);
 
   const hasAdjacent =
     adjacentPosts.length === Adjacent.HAS_TWO
