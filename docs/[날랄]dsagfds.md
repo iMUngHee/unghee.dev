@@ -2,7 +2,7 @@
 id: 12
 title: '[모던 자바스크립트] 04. 변수'
 date: 'Apr 04 2022'
-tags: ['test1', 'test2']
+tags: ['test2']
 cover_image: '/image/posts/img1.jpg'
 description: 'Description for Test'
 ---

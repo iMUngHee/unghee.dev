@@ -4,8 +4,15 @@ import matter from 'gray-matter';
 import Items from '@components/Items';
 import Tags from '@components/Tags';
 import { GetStaticProps, NextPage } from 'next';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleType } from '@libs/redux/posts';
+import { AppDispatch, RootState } from '@libs/redux/store';
+import React, {
+  ButtonHTMLAttributes,
+  MouseEvent,
+  MouseEventHandler,
+} from 'react';
 
 export interface PostType {
   slug: string;
@@ -29,13 +36,15 @@ export interface DocsDataType {
   tagInfo?: TagType[];
 }
 
-type TPosts = 'recent' | 'tag';
-
 const Posts: NextPage<DocsDataType> = ({ posts, tagInfo }) => {
-  const [type, setType] = useState<TPosts>('recent');
-  const onSelect = ({ target: { value } }: any) => {
-    value === 'recent' ? setType('recent') : setType('tag');
+  const type = useSelector<RootState>((state) => state.posts.type);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const onSelect = (e: MouseEvent<HTMLButtonElement>) => {
+    const value = (e.target as HTMLButtonElement).value;
+    dispatch(toggleType(value));
   };
+
   return (
     <div className="mt-5 w-full pb-12">
       <div className="flex w-full flex-row items-center justify-start gap-5">
@@ -58,7 +67,7 @@ const Posts: NextPage<DocsDataType> = ({ posts, tagInfo }) => {
           className="font-['RocknRoll_One']"
         >
           Tag
-          {type === 'tag' ? (
+          {type === 'tags' ? (
             <motion.div
               layoutId="underline"
               className="border-b-2 border-black pt-1"

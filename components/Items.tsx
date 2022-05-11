@@ -1,13 +1,25 @@
+import { useRouter } from 'next/router';
 import { DocsDataType } from 'pages/posts';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Item from './Item';
 import Layout from './Layout/animate';
 
 const Items: React.FC<DocsDataType> = ({ posts }) => {
+  const router = useRouter();
+  const [items, setItems] = useState(posts);
+
+  useEffect(() => {
+    if (!router.query.tag) return;
+    const filteredByTag = posts?.filter((post) =>
+      post.frontMatter.tags.includes(router.query.tag as string),
+    );
+    setItems(filteredByTag);
+  }, [router, posts]);
+
   return (
     <Layout title="Posts">
       <div className="-m-4 flex flex-wrap">
-        {posts.map((post, index) => (
+        {items!.map((post, index) => (
           <Item
             key={index}
             id={post.frontMatter.id}
