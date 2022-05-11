@@ -1,9 +1,9 @@
-import cls from "@libs/cls";
-import { useTheme } from "next-themes";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import cls from '@libs/cls';
+import { useTheme } from 'next-themes';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const logoVariants = {
   rest: {
@@ -22,17 +22,37 @@ export default function NavigationBar() {
   const [isHidden, setIsHidden] = useState(true);
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
+  const ref = useRef<HTMLDivElement>(null);
+
+  const onHidden = () => setIsHidden((prev) => !prev);
+  const onClickOutSide = useCallback(
+    (e: any) => {
+      if (!isHidden && !ref.current?.contains(e.target)) {
+        setIsHidden(true);
+      }
+    },
+    [isHidden],
+  );
+  const onClick = () => {
+    router.push('/');
+  };
+
   useEffect(() => setMounted(true), []);
+
   useEffect(() => {
     setIsHidden(true);
   }, [router]);
+
+  useEffect(() => {
+    if (!isHidden) {
+      document.addEventListener('mousedown', onClickOutSide);
+    }
+    return () => {
+      document.removeEventListener('mousedown', onClickOutSide);
+    };
+  }, [isHidden, onClickOutSide]);
+
   if (!mounted) return null;
-  const onHidden = () => {
-    setIsHidden((prev) => !prev);
-  };
-  const onClick = () => {
-    router.push("/");
-  };
 
   return (
     <div
@@ -80,7 +100,7 @@ export default function NavigationBar() {
           </span>
         </motion.div>
         <div className="flex flex-row items-center justify-center gap-2 xl:gap-10">
-          <div className={"hidden md:flex"}>
+          <div className={'hidden md:flex'}>
             <nav
               className="flex select-none flex-row items-center justify-center 
               gap-4 font-['RocknRoll_One'] text-base text-zinc-800
@@ -100,7 +120,7 @@ export default function NavigationBar() {
           </div>
           <AnimatePresence exitBeforeEnter initial={true}>
             <motion.span
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="relative flex h-8 w-8 cursor-pointer items-center justify-center
               rounded-md bg-zinc-800 text-amber-50 
               shadow-md dark:bg-amber-200 dark:text-zinc-800 dark:shadow-sm
@@ -112,7 +132,7 @@ export default function NavigationBar() {
               exit={{ y: 20, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              {theme === "light" ? (
+              {theme === 'light' ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="absolute h-5 w-5"
@@ -143,6 +163,7 @@ export default function NavigationBar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             onClick={onHidden}
+            ref={ref}
             className="dark:shadow-s flex h-8 w-8 cursor-pointer items-center justify-center rounded-md 
               bg-amber-50 text-zinc-800 shadow-md dark:bg-zinc-800 
                 dark:text-amber-50 dark:shadow-sm dark:shadow-slate-500
