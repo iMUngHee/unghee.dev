@@ -1,7 +1,12 @@
+import cls from '@libs/cls';
 import { NextPage } from 'next';
 
-const Paragraph: NextPage = ({ children }) => {
-  return <p className="mt-2 indent-4">{children}</p>;
+interface ParagraphType {
+  style?: string;
+}
+
+const Paragraph: NextPage<ParagraphType> = ({ children, style }) => {
+  return <p className={cls('mt-2 indent-4', style || '')}>{children}</p>;
 };
 
 export default Paragraph;
