@@ -29,22 +29,23 @@ const Home: NextPage = () => {
             className="object-center"
           />
         </div>
-        <div className="mt-5 px-3">
+        <div className="mt-5 flex flex-col gap-5 px-3">
           <div>
             <h2 className="text-3xl font-bold">Lee Unghee</h2>
             <p className="mt-1">Developer ( Front-End / iOS ) </p>
+            <p className="">unghee66@gmail.com </p>
             <div className="mt-5 flex w-full items-center justify-center">
               <div className="relative h-24 w-24 overflow-hidden rounded-full shadow-2xl md:h-36 md:w-36">
                 <Image src="/image/profile.png" alt="profile" layout="fill" />
               </div>
             </div>
           </div>
-          <div>
+          {/* <div>
             <HeadLine>Work</HeadLine>
             <Paragraph>
               <div></div>
             </Paragraph>
-          </div>
+          </div> */}
           <div>
             <HeadLine>Bio</HeadLine>
             <Paragraph style="flex flex-col">
