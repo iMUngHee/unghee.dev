@@ -110,9 +110,9 @@ export default function NavigationBar() {
               <Link href="/">
                 <a className="transition-all hover:scale-110">About</a>
               </Link>
-              <Link href="/works">
+              {/* <Link href="/works">
                 <a className="transition-all hover:scale-110">Works</a>
-              </Link>
+              </Link> */}
               <Link href="/posts">
                 <a className="transition-all hover:scale-110">Posts</a>
               </Link>
@@ -201,9 +201,9 @@ export default function NavigationBar() {
                 <Link href="/">
                   <a className="transition-all hover:scale-110">About</a>
                 </Link>
-                <Link href="/works">
+                {/* <Link href="/works">
                   <a className="transition-all hover:scale-110">Works</a>
-                </Link>
+                </Link> */}
                 <Link href="/posts">
                   <a className="transition-all hover:scale-110">Posts</a>
                 </Link>
