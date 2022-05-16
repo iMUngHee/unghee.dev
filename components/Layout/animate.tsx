@@ -11,7 +11,7 @@ const variants = {
 
 interface LayoutType {
   title: string;
-  cover_image: string;
+  cover_image?: string;
   tags?: string[];
   key?: string;
 }
@@ -38,14 +38,14 @@ const Layout: NextPage<LayoutType> = ({
           title,
           images: [
             {
-              url: cover_image,
+              url: cover_image || 'default',
               width: 800,
               height: 600,
               alt: 'thumbnail',
             },
           ],
           article: {
-            tags,
+            tags: tags || ['default'],
           },
         }}
       />
