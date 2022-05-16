@@ -92,6 +92,7 @@ const Detail: NextPage<SlugType> = ({
                 src={cover_image}
                 alt="thumbnail"
                 layout="responsive"
+                objectFit="cover"
                 width={500}
                 height={300}
               />
@@ -106,90 +107,92 @@ const Detail: NextPage<SlugType> = ({
             </div>
           </div>
         </div>
-        <div
-          className={cls(
-            'my-2 flex w-full flex-col items-center gap-4 px-1 py-2 md:flex-row',
-            hasAdjacent === Adjacent.ONLY_NEXT
-              ? 'justify-end'
-              : 'justify-between',
-          )}
-        >
-          {hasAdjacent !== Adjacent.ONLY_NEXT && (
-            <motion.button
-              className="text-md flex h-14 w-full items-center justify-start rounded-md
+        {hasAdjacent && (
+          <div
+            className={cls(
+              'my-2 flex w-full flex-col items-center gap-4 px-1 py-2 md:flex-row',
+              hasAdjacent === Adjacent.ONLY_NEXT
+                ? 'justify-end'
+                : 'justify-between',
+            )}
+          >
+            {hasAdjacent !== Adjacent.ONLY_NEXT && (
+              <motion.button
+                className="text-md flex h-14 w-full items-center justify-start rounded-md
             bg-zinc-700 px-3 text-left font-bold text-amber-50 shadow-md dark:bg-amber-50
             dark:text-zinc-800 md:w-1/2"
-              initial="init"
-              whileHover="hover"
-            >
-              <motion.svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-                variants={arrowVariants}
-                custom={'left'}
+                initial="init"
+                whileHover="hover"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"
-                />
-              </motion.svg>
-              <Link passHref href={`/posts/${adjacentPosts[0].slug}`}>
-                <a className="ml-3 flex flex-col">
-                  <span className="text-sm">Prev</span>
-                  <span>{adjacentPosts[0].slug}</span>
-                </a>
-              </Link>
-            </motion.button>
-          )}
-          {hasAdjacent !== Adjacent.ONLY_PREV && (
-            <motion.button
-              className="text-md flex h-14 w-full flex-row-reverse items-center justify-start
+                <motion.svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  variants={arrowVariants}
+                  custom={'left'}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"
+                  />
+                </motion.svg>
+                <Link passHref href={`/posts/${adjacentPosts[0].slug}`}>
+                  <a className="ml-3 flex flex-col">
+                    <span className="text-sm">Prev</span>
+                    <span>{adjacentPosts[0].slug}</span>
+                  </a>
+                </Link>
+              </motion.button>
+            )}
+            {hasAdjacent !== Adjacent.ONLY_PREV && (
+              <motion.button
+                className="text-md flex h-14 w-full flex-row-reverse items-center justify-start
             rounded-md bg-zinc-700 px-3 text-right font-bold text-amber-50 shadow-md dark:bg-amber-50
             dark:text-zinc-800 md:w-1/2"
-              initial="init"
-              whileHover="hover"
-            >
-              <motion.svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-                variants={arrowVariants}
-                custom={'right'}
+                initial="init"
+                whileHover="hover"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </motion.svg>
-              <Link
-                passHref
-                href={`/posts/${
-                  hasAdjacent === Adjacent.ONLY_NEXT
-                    ? adjacentPosts[0].slug
-                    : adjacentPosts[1].slug
-                }`}
-              >
-                <a className="mr-3 flex flex-col">
-                  <span className="text-sm">Next</span>
-                  <span>
-                    {hasAdjacent === Adjacent.ONLY_NEXT
+                <motion.svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  variants={arrowVariants}
+                  custom={'right'}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </motion.svg>
+                <Link
+                  passHref
+                  href={`/posts/${
+                    hasAdjacent === Adjacent.ONLY_NEXT
                       ? adjacentPosts[0].slug
-                      : adjacentPosts[1].slug}
-                  </span>
-                </a>
-              </Link>
-            </motion.button>
-          )}
-        </div>
+                      : adjacentPosts[1].slug
+                  }`}
+                >
+                  <a className="mr-3 flex flex-col">
+                    <span className="text-sm">Next</span>
+                    <span>
+                      {hasAdjacent === Adjacent.ONLY_NEXT
+                        ? adjacentPosts[0].slug
+                        : adjacentPosts[1].slug}
+                    </span>
+                  </a>
+                </Link>
+              </motion.button>
+            )}
+          </div>
+        )}
         <Footer />
       </Container>
     </Layout>
@@ -242,12 +245,13 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     .filter((post) => Math.abs(post.frontMatter.id - frontMatter.id) === 1)
     .sort((a, b) => a.frontMatter.id - b.frontMatter.id);
 
-  const hasAdjacent =
-    adjacentPosts.length === Adjacent.HAS_TWO
+  const hasAdjacent = Boolean(adjacentPosts.length)
+    ? adjacentPosts.length === Adjacent.HAS_TWO
       ? Adjacent.HAS_TWO
       : adjacentPosts[0].frontMatter.id > frontMatter.id
       ? Adjacent.ONLY_NEXT
-      : Adjacent.ONLY_PREV;
+      : Adjacent.ONLY_PREV
+    : null;
 
   return {
     props: {

@@ -1,12 +1,10 @@
 ---
-
 id: 14
 title: '왜 나는 너를 사랑하는가'
 date: 'Apr 04 2022'
-tags: ['test2']
-cover_image: '/image/posts/img1.jpg'
+tags: ['javascript']
+cover_image: '/image/posts/modernJSDeepDive.jpeg'
 description: 'Description for Test'
-
 ---
 
 ## 💡 이론
