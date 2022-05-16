@@ -7,12 +7,20 @@ import { Provider } from 'react-redux';
 import { store } from '@libs/redux/store';
 import { DefaultSeo } from 'next-seo';
 import DEFAULT_SEO from '@libs/DefaultSEO';
+import { useEffect, useState } from 'react';
 
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual';
 }
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+  const [showChild, setShowChild] = useState(false);
+  useEffect(() => {
+    setShowChild(true);
+  }, []);
+  if (!showChild) {
+    return null;
+  }
   return (
     <>
       <DefaultSeo {...DEFAULT_SEO} />

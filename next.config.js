@@ -8,6 +8,9 @@ const nextConfig = {
       layoutRaw: true,
     },
   },
+  typescript: {
+    tsconfigPath: './tsconfig.json',
+  },
 };
 
 module.exports = nextConfig;
