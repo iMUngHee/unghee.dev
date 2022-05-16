@@ -10,7 +10,7 @@ const DEFAULT_SEO = {
     site_name: 'Unghee',
     images: [
       {
-        url: '카카오톡, 페이스북에에 링크 넣으면 올라올 이미지',
+        url: '/image/background.png',
         width: 285,
         height: 167,
         alt: 'thumbnail',

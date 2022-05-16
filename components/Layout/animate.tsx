@@ -38,7 +38,7 @@ const Layout: NextPage<LayoutType> = ({
           title,
           images: [
             {
-              url: cover_image || 'default',
+              url: cover_image || '/image/background.png',
               width: 800,
               height: 600,
               alt: 'thumbnail',
