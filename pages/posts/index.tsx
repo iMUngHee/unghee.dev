@@ -13,6 +13,7 @@ import React, {
   MouseEvent,
   MouseEventHandler,
 } from 'react';
+import Footer from '@components/Footer';
 
 export interface PostType {
   slug: string;
@@ -46,45 +47,48 @@ const Posts: NextPage<DocsDataType> = ({ posts, tagInfo }) => {
   };
 
   return (
-    <div className="mt-5 w-full pb-12">
-      <div className="flex w-full flex-row items-center justify-start gap-5">
-        <button
-          onClick={onSelect}
-          value="recent"
-          className="font-['RocknRoll_One']"
-        >
-          Recent
-          {type === 'recent' ? (
-            <motion.div
-              layoutId="underline"
-              className="border-b-2 border-black pt-1"
-            />
-          ) : null}
-        </button>
-        <button
-          value="tag"
-          onClick={onSelect}
-          className="font-['RocknRoll_One']"
-        >
-          Tag
-          {type === 'tags' ? (
-            <motion.div
-              layoutId="underline"
-              className="border-b-2 border-black pt-1"
-            />
-          ) : null}
-        </button>
-      </div>
-      <div className="mt-4 flex">
-        <div className="box-border flex-1">
-          {type === 'recent' ? (
-            <Items posts={posts} />
-          ) : (
-            <Tags tagInfo={tagInfo} />
-          )}
+    <>
+      <div className="mt-5 min-h-[85vh] w-full pb-12">
+        <div className="flex w-full flex-row items-center justify-start gap-5">
+          <button
+            onClick={onSelect}
+            value="recent"
+            className="font-['RocknRoll_One']"
+          >
+            Recent
+            {type === 'recent' ? (
+              <motion.div
+                layoutId="underline"
+                className="border-b-2 border-black pt-1"
+              />
+            ) : null}
+          </button>
+          <button
+            value="tag"
+            onClick={onSelect}
+            className="font-['RocknRoll_One']"
+          >
+            Tag
+            {type === 'tags' ? (
+              <motion.div
+                layoutId="underline"
+                className="border-b-2 border-black pt-1"
+              />
+            ) : null}
+          </button>
+        </div>
+        <div className="mt-4 flex">
+          <div className="box-border flex-1">
+            {type === 'recent' ? (
+              <Items posts={posts} />
+            ) : (
+              <Tags tagInfo={tagInfo} />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
