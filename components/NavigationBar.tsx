@@ -190,7 +190,7 @@ export default function NavigationBar() {
           {isHidden ? null : (
             <motion.div
               className={cls(
-                `absolute top-12 right-1 w-32 rounded-md bg-zinc-800 dark:bg-amber-50`,
+                `absolute top-12 right-3 w-24 rounded-md bg-zinc-800 dark:bg-amber-50`,
               )}
               initial={{ opacity: 0, x: 10, y: -50, scale: 0 }}
               animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
