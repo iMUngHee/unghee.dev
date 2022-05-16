@@ -190,7 +190,7 @@ export default function NavigationBar() {
           {isHidden ? null : (
             <motion.div
               className={cls(
-                `absolute top-12 right-1 w-20 rounded-md bg-zinc-800 dark:bg-amber-50`,
+                `absolute top-12 right-1 w-32 rounded-md bg-zinc-800 dark:bg-amber-50`,
               )}
               initial={{ opacity: 0, x: 10, y: -50, scale: 0 }}
               animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
@@ -199,13 +199,17 @@ export default function NavigationBar() {
             >
               <nav className="flex select-none flex-col items-center justify-center py-1 text-amber-50 dark:text-zinc-800">
                 <Link href="/">
-                  <a className="transition-all hover:scale-110">About</a>
+                  <a className="py-2 text-xl transition-all hover:scale-110">
+                    About
+                  </a>
                 </Link>
                 {/* <Link href="/works">
                   <a className="transition-all hover:scale-110">Works</a>
                 </Link> */}
                 <Link href="/posts">
-                  <a className="transition-all hover:scale-110">Posts</a>
+                  <a className="py-2 text-xl transition-all hover:scale-110">
+                    Posts
+                  </a>
                 </Link>
               </nav>
             </motion.div>
