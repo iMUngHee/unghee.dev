@@ -65,7 +65,7 @@ const Detail: NextPage<SlugType> = ({
     setMarkedContent(marked(content));
   }, [content]);
   return (
-    <Layout title={title}>
+    <Layout title={title} tags={tags} cover_image={cover_image}>
       <Container>
         <div className="mt-14">
           <div className="px-8">
