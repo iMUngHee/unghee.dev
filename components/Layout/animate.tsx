@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import Head from 'next/head';
+import { NextPage } from 'next';
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -14,6 +13,7 @@ interface LayoutType {
   cover_image?: string;
   tags?: string[];
   key?: string;
+  description?: string;
 }
 
 const Layout: NextPage<LayoutType> = ({
@@ -22,6 +22,7 @@ const Layout: NextPage<LayoutType> = ({
   key,
   tags,
   cover_image,
+  description,
 }) => (
   <motion.article
     initial="hidden"
@@ -31,28 +32,30 @@ const Layout: NextPage<LayoutType> = ({
     transition={{ duration: 0.4, type: 'easeInOut' }}
   >
     <>
-      <NextSeo
-        openGraph={{
-          type: 'article',
-          url: `https://www.unghee.dev/${title}`,
-          title,
-          images: [
-            {
-              url: cover_image || '/image/background.png',
-              width: 800,
-              height: 600,
-              alt: 'thumbnail',
-            },
-          ],
-          article: {
-            tags: tags || ['default'],
-          },
-        }}
-      />
       {title && (
-        <Head>
-          <title>{title} - UNG</title>
-        </Head>
+        <NextSeo
+          title={`${title} - UNG`}
+          description={description}
+          openGraph={{
+            type: 'article',
+            url: `https://www.unghee.dev/${title}`,
+            locale: 'ko_KR',
+            title: `${title} - UNG`,
+            description,
+            images: [
+              {
+                url: cover_image || '/image/background.png',
+                width: 800,
+                height: 600,
+                alt: 'thumbnail',
+              },
+            ],
+            article: {
+              tags: tags || ['default'],
+            },
+            site_name: 'UNGHEE-DEV',
+          }}
+        />
       )}
       {children}
     </>

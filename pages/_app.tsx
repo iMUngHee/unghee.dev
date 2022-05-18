@@ -1,29 +1,28 @@
+/* Styles */
 import '../styles/globals.css';
+
+/* Types */
 import type { AppProps } from 'next/app';
+
+/* Provider */
 import { ThemeProvider } from 'next-themes';
-import Layout from '@components/Layout';
-import { AnimatePresence } from 'framer-motion';
 import { Provider } from 'react-redux';
-import { store } from '@libs/redux/store';
-import { DefaultSeo } from 'next-seo';
-import DEFAULT_SEO from '@libs/DefaultSEO';
+
+/* Components */
+import { AnimatePresence } from 'framer-motion';
+import Layout from '@components/Layout';
+
+/* lib */
 import { useEffect, useState } from 'react';
+import { store } from '@libs/redux/store';
 
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual';
 }
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  const [showChild, setShowChild] = useState(false);
-  useEffect(() => {
-    setShowChild(true);
-  }, []);
-  if (!showChild) {
-    return null;
-  }
   return (
     <>
-      <DefaultSeo {...DEFAULT_SEO} />
       <Provider store={store}>
         <ThemeProvider attribute="class" enableSystem={true}>
           <Layout>
