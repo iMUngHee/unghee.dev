@@ -85,13 +85,16 @@ const Detail: NextPage<SlugType> = ({
             </div>
             <div className="flex items-center justify-end pt-2">
               {tags.map((tag, idx) => (
-                <Link key={idx} href={`/posts?tag=${tag}`}>
-                  <a
-                    className="ml-2 rounded-xl bg-zinc-800 px-1 py-[0.1rem] text-[0.6rem] font-bold text-amber-50 transition-all hover:scale-110
+                <Link key={idx} href={`/posts?tag=${tag}`} passHref>
+                  <motion.a
+                    initial={{ y: 0 }}
+                    whileHover={{ y: -3 }}
+                    transition={{ duration: 0.2, type: 'tween' }}
+                    className="ml-2 rounded-xl bg-zinc-800 px-1 py-[0.1rem] text-[0.6rem] font-bold text-amber-50 transition-all
                   peer-valid:mt-1  dark:bg-amber-50 dark:text-zinc-900 md:px-3 md:py-[0.3rem] md:text-sm"
                   >
                     {tag}
-                  </a>
+                  </motion.a>
                 </Link>
               ))}
             </div>
