@@ -40,7 +40,7 @@ const arrowVariants = {
 };
 
 const Detail: NextPage<SlugType> = ({
-  frontMatter: { title, date, cover_image, tags },
+  frontMatter: { title, date, cover_image, tags, description },
   slug,
   content,
   adjacentPosts,
@@ -65,7 +65,12 @@ const Detail: NextPage<SlugType> = ({
     setMarkedContent(marked(content));
   }, [content]);
   return (
-    <Layout title={title} tags={tags} cover_image={cover_image}>
+    <Layout
+      title={title}
+      tags={tags}
+      cover_image={cover_image}
+      description={description}
+    >
       <Container>
         <div className="mt-14">
           <div className="px-8">

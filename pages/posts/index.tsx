@@ -8,11 +8,7 @@ import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleType } from '@libs/redux/posts';
 import { AppDispatch, RootState } from '@libs/redux/store';
-import React, {
-  ButtonHTMLAttributes,
-  MouseEvent,
-  MouseEventHandler,
-} from 'react';
+import React, { MouseEvent } from 'react';
 import Footer from '@components/Footer';
 
 export interface PostType {

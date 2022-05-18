@@ -18,7 +18,7 @@ import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (
-    <Layout title="Home">
+    <Layout title="UngHee" description="하루 하루는 성실히, 인생은 되는대로">
       <Container>
         <div className="relative m-auto mt-5 flex h-80 w-[80%] items-center justify-center overflow-hidden rounded-md">
           <Image

@@ -5,8 +5,6 @@ import Layout from '@components/Layout';
 import { AnimatePresence } from 'framer-motion';
 import { Provider } from 'react-redux';
 import { store } from '@libs/redux/store';
-import { DefaultSeo } from 'next-seo';
-import DEFAULT_SEO from '@libs/DefaultSEO';
 import { useEffect, useState } from 'react';
 
 if (typeof window !== 'undefined') {
@@ -23,7 +21,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   }
   return (
     <>
-      <DefaultSeo {...DEFAULT_SEO} />
       <Provider store={store}>
         <ThemeProvider attribute="class" enableSystem={true}>
           <Layout>
