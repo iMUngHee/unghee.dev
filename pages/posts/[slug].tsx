@@ -1,19 +1,24 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import hljs from 'highlight.js';
-import { motion } from 'framer-motion';
-import { marked } from 'marked';
+/* Types */
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { PostType } from '.';
 import { ParsedUrlQuery } from 'querystring';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { PostType } from '.';
+
+/* Components */
+import Container from '@components/Layout/article';
 import Layout from '@components/Layout/animate';
 import Footer from '@components/Footer';
-import Container from '@components/Layout/article';
+import Image from 'next/image';
 import Link from 'next/link';
+
+/* lib */
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+import hljs from 'highlight.js';
 import cls from '@libs/cls';
+import path from 'path';
+import fs from 'fs';
 
 interface SlugType extends PostType {
   content: string;

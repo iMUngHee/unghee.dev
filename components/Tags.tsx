@@ -1,11 +1,16 @@
-import { toggleType } from '@libs/redux/posts';
+/* Types */
 import { AppDispatch } from '@libs/redux/store';
-import { NextPage } from 'next';
-import Link from 'next/link';
 import { DocsDataType } from 'pages/posts';
+import { NextPage } from 'next';
+
+/* lib */
+import { toggleType } from '@libs/redux/posts';
 import { useDispatch } from 'react-redux';
+
+/* Components */
 import { TagCloud } from 'react-tagcloud';
 import Layout from './Layout/animate';
+import Link from 'next/link';
 
 const Tags: NextPage<DocsDataType> = ({ tagInfo }) => {
   const dispatch = useDispatch<AppDispatch>();

@@ -1,9 +1,15 @@
-import Footer from '@components/Footer';
-import HeadLine from '@components/headLine';
-import Layout from '@components/Layout/animate';
+/* Types */
+import type { NextPage } from 'next';
+
+/* Components */
 import Container from '@components/Layout/article';
+import Layout from '@components/Layout/animate';
 import Paragraph from '@components/paragraph';
+import HeadLine from '@components/headLine';
+import Footer from '@components/Footer';
 import Skill from '@components/Skill';
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   JavaScript,
   ReactIcon,
@@ -12,9 +18,6 @@ import {
   TypeScript,
   Vue,
 } from '@components/svgIcon';
-import type { NextPage } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (

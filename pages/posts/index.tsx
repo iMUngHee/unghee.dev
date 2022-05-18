@@ -1,15 +1,20 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import Items from '@components/Items';
-import Tags from '@components/Tags';
+/* Types */
 import { GetStaticProps, NextPage } from 'next';
-import { motion } from 'framer-motion';
+
+/* lib */
+import { AppDispatch, RootState } from '@libs/redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleType } from '@libs/redux/posts';
-import { AppDispatch, RootState } from '@libs/redux/store';
 import React, { MouseEvent } from 'react';
+import { motion } from 'framer-motion';
+import matter from 'gray-matter';
+import path from 'path';
+import fs from 'fs';
+
+/* Components */
 import Footer from '@components/Footer';
+import Items from '@components/Items';
+import Tags from '@components/Tags';
 
 export interface PostType {
   slug: string;

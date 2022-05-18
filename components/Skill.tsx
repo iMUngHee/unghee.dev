@@ -1,6 +1,5 @@
-import cls from '@libs/cls';
 import { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import cls from '@libs/cls';
 
 interface SkillProps {
   title: string;

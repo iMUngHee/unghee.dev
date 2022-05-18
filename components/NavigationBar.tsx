@@ -1,9 +1,12 @@
-import cls from '@libs/cls';
-import { useTheme } from 'next-themes';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+/* lib */
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
+import cls from '@libs/cls';
+
+/* Components */
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 
 const logoVariants = {
   rest: {
@@ -120,7 +123,11 @@ export default function NavigationBar() {
           </div>
           <AnimatePresence exitBeforeEnter initial={true}>
             <motion.span
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              onClick={() =>
+                setTheme(
+                  theme === 'dark' || theme === 'system' ? 'light' : 'dark',
+                )
+              }
               className="relative flex h-8 w-8 cursor-pointer items-center justify-center
               rounded-md bg-zinc-800 text-amber-50 
               shadow-md dark:bg-amber-200 dark:text-zinc-800 dark:shadow-sm

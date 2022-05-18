@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import Head from 'next/head';
+import { NextPage } from 'next';
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
