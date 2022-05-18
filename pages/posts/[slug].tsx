@@ -78,15 +78,17 @@ const Detail: NextPage<SlugType> = ({
     >
       <Container>
         <div className="mt-14">
-          <div className="px-8">
+          <div>
             <h1 className="text-3xl font-bold lg:text-4xl">{title}</h1>
-            <div className="flex items-center justify-end pt-2">{date}</div>
+            <div className="flex items-center justify-end pt-2 text-xs md:text-sm lg:text-base">
+              {date}
+            </div>
             <div className="flex items-center justify-end pt-2">
               {tags.map((tag, idx) => (
                 <Link key={idx} href={`/posts?tag=${tag}`}>
                   <a
-                    className="ml-2 rounded-xl bg-zinc-800 px-3 py-[0.3rem] text-sm font-bold text-amber-50
-                  transition-all  hover:scale-110 peer-valid:mt-1 dark:bg-amber-50 dark:text-zinc-900 lg:text-sm"
+                    className="ml-2 rounded-xl bg-zinc-800 px-1 py-[0.1rem] text-[0.6rem] font-bold text-amber-50 transition-all hover:scale-110
+                  peer-valid:mt-1  dark:bg-amber-50 dark:text-zinc-900 md:px-3 md:py-[0.3rem] md:text-sm"
                   >
                     {tag}
                   </a>
@@ -96,7 +98,7 @@ const Detail: NextPage<SlugType> = ({
           </div>
         </div>
         <div>
-          <div className="my-5 px-8">
+          <div className="my-5 ">
             <div className="overflow-hidden rounded-md">
               <Image
                 src={cover_image}
@@ -109,8 +111,8 @@ const Detail: NextPage<SlugType> = ({
             </div>
             <div className="pt-5">
               <div
-                className="prose prose-lg prose-zinc prose-img:rounded-md dark:prose-invert 
-                  md:prose-xl
+                className="prose prose-lg prose-zinc text-sm prose-img:rounded-md 
+                  dark:prose-invert md:prose-xl md:text-base lg:text-lg
                 "
                 dangerouslySetInnerHTML={{ __html: markedContent! }}
               />
