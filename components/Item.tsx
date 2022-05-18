@@ -38,9 +38,10 @@ const Item: React.FC<ItemType> = ({
   return (
     <>
       <Link passHref href={`/posts/${slug}`}>
-        <motion.a
+        <motion.div
           key={id}
           className="m-4 flex w-full
+          cursor-pointer
           flex-col overflow-hidden rounded-md bg-slate-50
           shadow-md shadow-slate-500 dark:bg-zinc-700
           dark:shadow-slate-900 md:[width:calc(50%-2rem)] lg:w-[20rem]"
@@ -73,12 +74,11 @@ const Item: React.FC<ItemType> = ({
             <div className="flex items-center justify-between p-2">
               <span>
                 {tags.map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="ml-1 text-sm text-cyan-600 transition-colors hover:text-cyan-200 dark:text-cyan-200 dark:hover:text-cyan-600"
-                  >
-                    #{tag}
-                  </span>
+                  <Link href={`/posts?tag=${tag}`} passHref key={idx}>
+                    <span className="ml-1 cursor-pointer text-sm text-cyan-600 transition-colors hover:text-cyan-200 dark:text-cyan-200 dark:hover:text-cyan-600">
+                      #{tag}
+                    </span>
+                  </Link>
                 ))}
               </span>
               <span className="text-sm text-gray-500 dark:text-gray-300">
@@ -86,7 +86,7 @@ const Item: React.FC<ItemType> = ({
               </span>
             </div>
           </div>
-        </motion.a>
+        </motion.div>
       </Link>
     </>
   );

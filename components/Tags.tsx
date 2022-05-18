@@ -6,6 +6,7 @@ import { NextPage } from 'next';
 /* lib */
 import { toggleType } from '@libs/redux/posts';
 import { useDispatch } from 'react-redux';
+import { motion } from 'framer-motion';
 
 /* Components */
 import { TagCloud } from 'react-tagcloud';
@@ -20,8 +21,11 @@ const Tags: NextPage<DocsDataType> = ({ tagInfo }) => {
 
   const customRenderer = (tag: any, size: number) => {
     return (
-      <Link key={tag.value} href={`/posts?tag=${tag.value}`}>
-        <a
+      <Link key={tag.value} href={`/posts?tag=${tag.value}`} passHref>
+        <motion.a
+          initial={{ y: 0, opacity: 1 }}
+          whileHover={{ y: -3, opacity: 0.6 }}
+          transition={{ duration: 0.3 }}
           onClick={onSelect}
           style={{
             fontSize: `${size / 2}em`,
@@ -29,10 +33,11 @@ const Tags: NextPage<DocsDataType> = ({ tagInfo }) => {
             padding: '0 3px',
             display: 'inline-block',
             fontFamily: 'RocknRoll One',
+            cursor: 'pointer',
           }}
         >
           {tag.value}
-        </a>
+        </motion.a>
       </Link>
     );
   };
