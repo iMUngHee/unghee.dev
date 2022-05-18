@@ -2,29 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.xyz {
-  position: absolute;
-}
-
-.x {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  background-color: #ff79c6;
-}
-.y {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  background-color: #f1fa8c;
-}
-.z {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  background-color: #50fa7b;
-}
-
 /**
   Dracula Theme for Highlight JS
 */
