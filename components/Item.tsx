@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import React from 'react';
 
 export interface ItemType {
   id: number;
@@ -60,12 +60,11 @@ const Item: React.FC<ItemType> = ({
           <div className="flex items-center justify-between p-2">
             <span>
               {tags.map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="ml-1 text-sm text-cyan-600 dark:text-cyan-200"
-                >
-                  #{tag}
-                </span>
+                <Link key={idx} href={`/posts?tag=${tag}`}>
+                  <a className="ml-1 text-sm text-cyan-600 transition-colors hover:text-cyan-200 dark:text-cyan-200 dark:hover:text-cyan-600">
+                    #{tag}
+                  </a>
+                </Link>
               ))}
             </span>
             <span className="text-sm text-gray-500 dark:text-gray-300">
