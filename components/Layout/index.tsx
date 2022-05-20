@@ -1,7 +1,12 @@
-import { NextPage } from "next";
-import NavigationBar from "../NavigationBar";
+import type { NextPage } from 'next';
+import type { ReactNode } from 'react';
+import NavigationBar from '../NavigationBar';
 
-const Layout: NextPage = ({ children }) => {
+interface Props {
+  children: ReactNode;
+}
+
+const Layout: NextPage<Props> = ({ children }) => {
   return (
     <div
       className="min-h-screen w-full select-none bg-amber-50 text-zinc-800 

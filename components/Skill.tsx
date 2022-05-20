@@ -1,7 +1,9 @@
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 import cls from '@libs/cls';
+import { ReactNode } from 'react';
 
 interface SkillProps {
+  children: ReactNode;
   title: string;
   progress: string;
   color: string;

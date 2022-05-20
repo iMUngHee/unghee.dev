@@ -1,7 +1,9 @@
 import { NextPage } from 'next';
 import cls from '@libs/cls';
+import { ReactNode } from 'react';
 
 interface ParagraphType {
+  children: ReactNode;
   style?: string;
 }
 
