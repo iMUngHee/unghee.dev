@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import { NextPage } from 'next';
+import { ReactNode } from 'react';
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -9,6 +10,7 @@ const variants = {
 };
 
 interface LayoutType {
+  children: ReactNode;
   title: string;
   cover_image?: string;
   tags?: string[];
