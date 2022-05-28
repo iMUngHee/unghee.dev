@@ -17,6 +17,11 @@
   dependencies:
     "regenerator-runtime" "^0.13.4"
 
+"@corex/deepmerge@^2.6.148":
+  "integrity" "sha512-6QMz0/2h5C3ua51iAnXMPWFbb1QOU1UvSM4bKBw5mzdT+WtLgjbETBBIQZ+Sh9WvEcGwlAt/DEdRpIC3XlDBMA=="
+  "resolved" "https://registry.npmjs.org/@corex/deepmerge/-/deepmerge-2.6.148.tgz"
+  "version" "2.6.148"
+
 "@emotion/is-prop-valid@^0.8.2":
   "integrity" "sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA=="
   "resolved" "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz"
@@ -1455,6 +1460,14 @@
   "integrity" "sha512-R9DhajPwJnR/lsF2hZ8cN8uqr5CVITsRrCG1AF5+ufcaybKYOvnH8sH9MaH4/hpkps3PQ9H71S7J7SPYixAYzQ=="
   "resolved" "https://registry.npmjs.org/next-seo/-/next-seo-5.4.0.tgz"
   "version" "5.4.0"
+
+"next-sitemap@^2.5.26":
+  "integrity" "sha512-ojW0ncbusBANyjuaaZhJtV/M4MIbKkxkuq/EM9ftBfqAC34UuIhbluTHXKIrEGCSql4RJow9EhkYh627ycBZ6g=="
+  "resolved" "https://registry.npmjs.org/next-sitemap/-/next-sitemap-2.5.26.tgz"
+  "version" "2.5.26"
+  dependencies:
+    "@corex/deepmerge" "^2.6.148"
+    "minimist" "^1.2.6"
 
 "next-themes@^0.2.0":
   "integrity" "sha512-myhpDL4vadBD9YDSHiewqvzorGzB03N84e+3LxCwHRlM/hiBOaW+UsKsQojQAzC7fdcJA0l2ppveXcYaVV+hxQ=="
