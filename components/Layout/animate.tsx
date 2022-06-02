@@ -14,6 +14,7 @@ interface LayoutType {
   title: string;
   cover_image?: string;
   tags?: string[];
+  metaTags?: string[];
   key?: string;
   description?: string;
 }
@@ -22,6 +23,7 @@ const Layout: NextPage<LayoutType> = ({
   children,
   title,
   key,
+  metaTags,
   tags,
   cover_image,
   description,
@@ -53,7 +55,7 @@ const Layout: NextPage<LayoutType> = ({
               },
             ],
             article: {
-              tags: tags || ['default'],
+              tags: metaTags || ['default'],
             },
             site_name: 'UNGHEE-DEV',
           }}
