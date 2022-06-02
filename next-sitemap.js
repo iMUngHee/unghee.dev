@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  siteUrl: 'https://unghee.dev',
+  siteUrl: 'https://www.unghee.dev',
   generateRobotsTxt: true, // (optional)
   // ...other options
 };
