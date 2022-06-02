@@ -77,7 +77,7 @@ const Detail: NextPage<SlugType> = ({
       description={description}
     >
       <Container>
-        <div className="mt-14">
+        <div className="mt-14 select-text">
           <div>
             <h1 className="text-3xl font-bold lg:text-4xl">{title}</h1>
             <div className="flex items-center justify-end pt-2 text-xs md:text-sm lg:text-base">
@@ -111,8 +111,8 @@ const Detail: NextPage<SlugType> = ({
             </div>
             <div className="pt-5">
               <div
-                className="prose prose-lg prose-zinc text-sm prose-img:rounded-md 
-                  dark:prose-invert md:prose-xl md:text-base lg:text-lg
+                className="prose prose-lg prose-zinc select-text text-sm 
+                  prose-img:rounded-md dark:prose-invert md:prose-xl md:text-base lg:text-lg
                 "
                 dangerouslySetInnerHTML={{ __html: markedContent! }}
               />
