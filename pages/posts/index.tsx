@@ -23,6 +23,7 @@ export interface PostType {
     title: string;
     date: string;
     tags: string[];
+    metaTags: string[];
     cover_image: string;
     description: string;
   };

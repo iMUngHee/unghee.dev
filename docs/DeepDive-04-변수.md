@@ -3,6 +3,7 @@ id: 1
 title: 'DeepDive: 04. 변수'
 date: 'May 10 2022'
 tags: ['Javascript']
+metaTags: ['Javascript', '모던 자바스크립트', 'ES6', 'ES2015']
 cover_image: '/image/posts/modernJSDeepDive.jpeg'
 description: '모던 자바스크립트 딥 다이브, 04.'
 ---

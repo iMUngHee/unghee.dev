@@ -45,7 +45,7 @@ const arrowVariants = {
 };
 
 const Detail: NextPage<SlugType> = ({
-  frontMatter: { title, date, cover_image, tags, description },
+  frontMatter: { title, date, cover_image, tags, metaTags, description },
   slug,
   content,
   adjacentPosts,
@@ -72,7 +72,7 @@ const Detail: NextPage<SlugType> = ({
   return (
     <Layout
       title={title}
-      tags={tags}
+      metaTags={metaTags}
       cover_image={cover_image}
       description={description}
     >
