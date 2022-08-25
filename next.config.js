@@ -11,6 +11,9 @@ const nextConfig = {
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
+  images: {
+    domains: ['unghee.notion.site'],
+  },
 };
 
 module.exports = nextConfig;
