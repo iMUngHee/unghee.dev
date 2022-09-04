@@ -1,10 +1,10 @@
 /* Types */
-import { AppDispatch } from '@libs/redux/store';
-import { DocsDataType } from 'pages/posts';
+import { AppDispatch } from 'src/libs/redux/store';
+import { DocsDataType } from 'src/pages/posts';
 import { NextPage } from 'next';
 
 /* lib */
-import { toggleType } from '@libs/redux/posts';
+import { toggleType } from 'src/libs/redux/posts';
 import { useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 

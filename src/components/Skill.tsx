@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import cls from '@libs/cls';
+import cls from 'src/libs/cls';
 import { ReactNode } from 'react';
 
 interface SkillProps {

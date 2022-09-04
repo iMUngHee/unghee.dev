@@ -2,9 +2,9 @@
 import { GetStaticProps, NextPage } from 'next';
 
 /* lib */
-import { AppDispatch, RootState } from '@libs/redux/store';
+import { AppDispatch, RootState } from 'src/libs/redux/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleType } from '@libs/redux/posts';
+import { toggleType } from 'src/libs/redux/posts';
 import React, { MouseEvent } from 'react';
 import { motion } from 'framer-motion';
 import matter from 'gray-matter';
@@ -12,9 +12,9 @@ import path from 'path';
 import fs from 'fs';
 
 /* Components */
-import Footer from '@components/Footer';
-import Items from '@components/Items';
-import Tags from '@components/Tags';
+import Footer from 'src/components/Footer';
+import Items from 'src/components/Items';
+import Tags from 'src/components/Tags';
 
 export interface PostType {
   slug: string;

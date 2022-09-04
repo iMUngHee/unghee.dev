@@ -4,9 +4,9 @@ import { ParsedUrlQuery } from 'querystring';
 import { PostType } from '.';
 
 /* Components */
-import Container from '@components/Layout/article';
-import Layout from '@components/Layout/animate';
-import Footer from '@components/Footer';
+import Container from 'src/components/Layout/article';
+import Layout from 'src/components/Layout/animate';
+import Footer from 'src/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,7 +16,7 @@ import { motion } from 'framer-motion';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
-import cls from '@libs/cls';
+import cls from 'src/libs/cls';
 import path from 'path';
 import fs from 'fs';
 

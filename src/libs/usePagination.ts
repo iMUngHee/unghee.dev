@@ -1,4 +1,4 @@
-import { PostType } from 'pages/posts';
+import { PostType } from 'src/pages/posts';
 import { useState } from 'react';
 
 export default function usePagination(data: PostType[], itemsPerPage: number) {

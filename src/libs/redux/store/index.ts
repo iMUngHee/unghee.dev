@@ -1,4 +1,4 @@
-import { postSlice } from './../posts/index';
+import { postSlice } from '../posts/index';
 import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({

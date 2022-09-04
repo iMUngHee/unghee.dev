@@ -1,5 +1,5 @@
 /* Styles */
-import '../styles/globals.css';
+import 'styles/globals.css';
 
 /* Types */
 import type { AppProps } from 'next/app';
@@ -10,11 +10,10 @@ import { Provider } from 'react-redux';
 
 /* Components */
 import { AnimatePresence } from 'framer-motion';
-import Layout from '@components/Layout';
+import Layout from 'src/components/Layout';
 
 /* lib */
-import { useEffect, useState } from 'react';
-import { store } from '@libs/redux/store';
+import { store } from 'src/libs/redux/store';
 
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual';

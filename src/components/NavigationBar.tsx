@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import cls from '@libs/cls';
+import cls from 'src/libs/cls';
 
 /* Components */
 import { AnimatePresence, motion } from 'framer-motion';

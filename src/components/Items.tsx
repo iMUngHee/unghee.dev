@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { DocsDataType } from 'pages/posts';
+import { DocsDataType } from 'src/pages/posts';
 import React, { useEffect, useState } from 'react';
 import Item from './Item';
 import Layout from './Layout/animate';
