@@ -2,12 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    reactRoot: true,
-    images: {
-      layoutRaw: true,
-    },
-  },
+  // experimental: {
+  //   reactRoot: true,
+  //   images: {
+  //     layoutRaw: true,
+  //   },
+  // },
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
