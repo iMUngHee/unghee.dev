@@ -4,21 +4,21 @@ import { ParsedUrlQuery } from 'querystring';
 import { PostType } from '.';
 
 /* Components */
-import Container from 'src/components/Layout/article';
-import Layout from 'src/components/Layout/animate';
-import Footer from 'src/components/Footer';
+import Container from '@components/Layout/article';
+import { MoveButton } from '@components/Button';
+import Layout from '@components/Layout/animate';
+import Footer from '@components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 
 /* lib */
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
-import cls from 'src/libs/cls';
 import path from 'path';
 import fs from 'fs';
+import cls from '@libs/cls';
 
 interface SlugType extends PostType {
   content: string;
@@ -27,22 +27,10 @@ interface SlugType extends PostType {
 }
 
 enum Adjacent {
-  ONLY_NEXT = 0,
-  ONLY_PREV = 1,
-  HAS_TWO = 2,
+  ONLY_NEXT = 1,
+  ONLY_PREV = 2,
+  HAS_TWO = 3,
 }
-
-const arrowVariants = {
-  init: {
-    x: 0,
-  },
-  hover: (direction: string) => ({
-    x: direction === 'left' ? -10 : 10,
-    transition: {
-      duration: 0.5,
-    },
-  }),
-};
 
 const Detail: NextPage<SlugType> = ({
   frontMatter: { title, date, cover_image, tags, metaTags, description },
@@ -52,6 +40,7 @@ const Detail: NextPage<SlugType> = ({
   hasAdjacent,
 }) => {
   const [markedContent, setMarkedContent] = useState<string>();
+
   useEffect(() => {
     marked.setOptions({
       langPrefix: 'hljs language-',
@@ -67,8 +56,10 @@ const Detail: NextPage<SlugType> = ({
         ]).value;
       },
     });
+
     setMarkedContent(marked(content));
   }, [content]);
+
   return (
     <Layout
       title={title}
@@ -129,79 +120,26 @@ const Detail: NextPage<SlugType> = ({
             )}
           >
             {hasAdjacent !== Adjacent.ONLY_NEXT && (
-              <motion.button
-                className="text-md flex h-14 w-full items-center justify-start rounded-md
-            bg-zinc-700 px-3 text-left font-bold text-amber-50 shadow-md dark:bg-amber-50
-            dark:text-zinc-800 md:w-1/2"
-                initial="init"
-                whileHover="hover"
-              >
-                <motion.svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  variants={arrowVariants}
-                  custom={'left'}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"
-                  />
-                </motion.svg>
-                <Link passHref href={`/posts/${adjacentPosts[0].slug}`}>
-                  <a className="ml-3 flex flex-col">
-                    <span className="text-sm">Prev</span>
-                    <span>{adjacentPosts[0].slug}</span>
-                  </a>
-                </Link>
-              </motion.button>
+              <MoveButton
+                direction="left"
+                text={adjacentPosts[0].slug}
+                link={`/posts/${adjacentPosts[0].slug}`}
+              />
             )}
             {hasAdjacent !== Adjacent.ONLY_PREV && (
-              <motion.button
-                className="text-md flex h-14 w-full flex-row-reverse items-center justify-start
-            rounded-md bg-zinc-700 px-3 text-right font-bold text-amber-50 shadow-md dark:bg-amber-50
-            dark:text-zinc-800 md:w-1/2"
-                initial="init"
-                whileHover="hover"
-              >
-                <motion.svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  variants={arrowVariants}
-                  custom={'right'}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </motion.svg>
-                <Link
-                  passHref
-                  href={`/posts/${
-                    hasAdjacent === Adjacent.ONLY_NEXT
-                      ? adjacentPosts[0].slug
-                      : adjacentPosts[1].slug
-                  }`}
-                >
-                  <a className="mr-3 flex flex-col">
-                    <span className="text-sm">Next</span>
-                    <span>
-                      {hasAdjacent === Adjacent.ONLY_NEXT
-                        ? adjacentPosts[0].slug
-                        : adjacentPosts[1].slug}
-                    </span>
-                  </a>
-                </Link>
-              </motion.button>
+              <MoveButton
+                direction="right"
+                text={
+                  hasAdjacent === Adjacent.ONLY_NEXT
+                    ? adjacentPosts[0].slug
+                    : adjacentPosts[1].slug
+                }
+                link={`/posts/${
+                  hasAdjacent === Adjacent.ONLY_NEXT
+                    ? adjacentPosts[0].slug
+                    : adjacentPosts[1].slug
+                }`}
+              />
             )}
           </div>
         )}
@@ -258,7 +196,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     .sort((a, b) => a.frontMatter.id - b.frontMatter.id);
 
   const hasAdjacent = Boolean(adjacentPosts.length)
-    ? adjacentPosts.length === Adjacent.HAS_TWO
+    ? adjacentPosts.length + 1 === Adjacent.HAS_TWO
       ? Adjacent.HAS_TWO
       : adjacentPosts[0].frontMatter.id > frontMatter.id
       ? Adjacent.ONLY_NEXT

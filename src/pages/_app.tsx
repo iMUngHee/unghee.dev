@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <ThemeProvider attribute="class" enableSystem={true}>
           <Layout>
             <AnimatePresence
-              exitBeforeEnter
+              mode="wait"
               initial={true}
               onExitComplete={() => {
                 if (typeof window !== 'undefined') {

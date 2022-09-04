@@ -121,7 +121,7 @@ export default function NavigationBar() {
               </Link>
             </nav>
           </div>
-          <AnimatePresence exitBeforeEnter initial={true}>
+          <AnimatePresence mode="wait" initial={true}>
             <motion.span
               onClick={() =>
                 setTheme(
