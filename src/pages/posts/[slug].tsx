@@ -16,9 +16,9 @@ import { useEffect, useState } from 'react';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
+import cls from '@libs/cls';
 import path from 'path';
 import fs from 'fs';
-import cls from '@libs/cls';
 
 interface SlugType extends PostType {
   content: string;
@@ -123,7 +123,7 @@ const Detail: NextPage<SlugType> = ({
               <MoveButton
                 direction="left"
                 text={adjacentPosts[0].slug}
-                link={`/posts/${adjacentPosts[0].slug}`}
+                link={`/posts/${encodeURIComponent(adjacentPosts[0].slug)}`}
               />
             )}
             {hasAdjacent !== Adjacent.ONLY_PREV && (
@@ -134,11 +134,11 @@ const Detail: NextPage<SlugType> = ({
                     ? adjacentPosts[0].slug
                     : adjacentPosts[1].slug
                 }
-                link={`/posts/${
+                link={`/posts/${encodeURIComponent(
                   hasAdjacent === Adjacent.ONLY_NEXT
                     ? adjacentPosts[0].slug
-                    : adjacentPosts[1].slug
-                }`}
+                    : adjacentPosts[1].slug,
+                )}`}
               />
             )}
           </div>
@@ -168,12 +168,8 @@ interface ParamsType extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params as ParamsType;
 
-  const markdownWithMeta = fs.readFileSync(
-    path.join('docs', slug + '.md'),
-    'utf-8',
-  );
-
   const files = fs.readdirSync(path.join('docs'));
+
   const posts = files.map((filename) => {
     const slug = filename.replace('.md', '');
     const markdownWithMeta = fs.readFileSync(
@@ -188,6 +184,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       frontMatter,
     };
   });
+
+  const markdownWithMeta = fs.readFileSync(
+    path.join('docs', slug + '.md'),
+    'utf-8',
+  );
 
   const { data: frontMatter, content } = matter(markdownWithMeta);
 

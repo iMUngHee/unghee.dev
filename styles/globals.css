@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/**
-  Dracula Theme for Highlight JS
-*/
+/* Dracula Theme for Highlight JS */
 
 .hljs {
   display: block;
