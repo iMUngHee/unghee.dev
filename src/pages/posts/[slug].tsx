@@ -53,20 +53,24 @@ const Detail: NextPage<SlugType> = ({
           'swift',
           'mysql',
           'bash',
+          'ruby',
         ]).value;
       },
     });
 
     setMarkedContent(marked(content));
+    console.log(marked(content));
   }, [content]);
 
   return (
+    //TODO Animation Layout
     <Layout
       title={title}
       metaTags={metaTags}
       cover_image={cover_image}
       description={description}
     >
+      {/*//TODO Article Layout */}
       <Container>
         <div className="mt-14 select-text">
           <div>
@@ -74,6 +78,7 @@ const Detail: NextPage<SlugType> = ({
             <div className="flex items-center justify-end pt-2 text-xs md:text-sm lg:text-base">
               {date}
             </div>
+            {/*//TODO Tags Component */}
             <div className="flex items-center justify-end pt-2">
               {tags.map((tag, idx) => (
                 <Link key={idx} href={`/posts?tag=${tag}`} passHref>
@@ -89,6 +94,7 @@ const Detail: NextPage<SlugType> = ({
           </div>
         </div>
         <div>
+          {/*//TODO Article Component */}
           <div className="my-5 ">
             <div className="overflow-hidden rounded-md">
               <Image
@@ -100,16 +106,21 @@ const Detail: NextPage<SlugType> = ({
                 height={300}
               />
             </div>
+            {/*//TODO useMarkdown / MarkDown Component */}
             <div className="pt-5">
               <div
-                className="prose prose-lg prose-zinc select-text text-sm 
-                  prose-img:rounded-md dark:prose-invert md:prose-xl md:text-base lg:text-lg
+                className="prose prose-lg prose-zinc select-text  text-sm prose-code:rounded-sm
+                  prose-code:bg-zinc-800
+                  prose-code:px-[0.2rem] prose-code:py-[0.1rem] prose-code:before:content-none prose-code:after:content-none prose-img:mx-auto dark:prose-invert
+                  dark:prose-code:bg-gray-900 md:prose-xl md:text-base lg:text-lg [&_p_code]:text-pink-400 dark:[&_p_code]:bg-black dark:[&_p_code]:text-pink-500
+                  [&_blockquote_p]:before:content-none [&_blockquote_p]:after:content-none
                 "
                 dangerouslySetInnerHTML={{ __html: markedContent! }}
               />
             </div>
           </div>
         </div>
+        {/*//TODO PageMove Buttons Component */}
         {hasAdjacent && (
           <div
             className={cls(
@@ -166,6 +177,7 @@ interface ParamsType extends ParsedUrlQuery {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
+  //TODO Better Algorithms
   const { slug } = ctx.params as ParamsType;
 
   const files = fs.readdirSync(path.join('docs'));

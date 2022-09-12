@@ -8,7 +8,8 @@
   display: block;
   overflow-x: auto;
   padding: 0.5rem;
-  background: rgb(39 39 42);
+  /* background: rgb(39 39 42); */
+  background: transparent;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -18,7 +19,8 @@
 }
 
 .dark .hljs {
-  background-color: rgb(17 24 39);
+  /* background-color: rgb(17 24 39); */
+  background-color: transparent;
   transition-property: color, background-color, border-color,
     text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
